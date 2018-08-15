@@ -8,6 +8,8 @@
 ## Built Using
 
 ## Setup
+ 1. Make sure Ganache is running & double check network configs in truffle.js
+ 2. 
 
 ## Contributing
 
