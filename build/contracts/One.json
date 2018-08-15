@@ -1,0 +1,327 @@
+{
+  "contractName": "One",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "returnOne",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b5060a18061001e6000396000f300608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633db22b12146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b600060019050905600a165627a7a72305820789eef14d305a5b00c53f4ad2c095f7ab6ad1434dbce30be982396d1b97a15480029",
+  "deployedBytecode": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633db22b12146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b600060019050905600a165627a7a72305820789eef14d305a5b00c53f4ad2c095f7ab6ad1434dbce30be982396d1b97a15480029",
+  "sourceMap": "129:81:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;129:81:0;;;;;;;",
+  "deployedSourceMap": "129:81:0:-;;;;;;;;;;;;;;;;;;;;;;;;146:62;;8:9:-1;5:2;;;30:1;27;20:12;5:2;146:62:0;;;;;;;;;;;;;;;;;;;;;;;;182:4;201:1;193:10;;146:62;:::o",
+  "source": "pragma solidity ^0.4.24;\n\n/* \n * Level 1: \n * Pass all the tests in TestOne.sol\n * Make sure to truffle migrate all changes\n */\n\ncontract One {\n  function returnOne() public returns(uint){\n    return (1);\n  }\n}",
+  "sourcePath": "/Users/nicolezhu/Desktop/soliditykoans/contracts/One.sol",
+  "ast": {
+    "absolutePath": "/Users/nicolezhu/Desktop/soliditykoans/contracts/One.sol",
+    "exportedSymbols": {
+      "One": [
+        11
+      ]
+    },
+    "id": 12,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 11,
+        "linearizedBaseContracts": [
+          11
+        ],
+        "name": "One",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 9,
+              "nodeType": "Block",
+              "src": "187:21:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "31",
+                        "id": 6,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "201:1:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_1_by_1",
+                          "typeString": "int_const 1"
+                        },
+                        "value": "1"
+                      }
+                    ],
+                    "id": 7,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "200:3:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_1_by_1",
+                      "typeString": "int_const 1"
+                    }
+                  },
+                  "functionReturnParameters": 5,
+                  "id": 8,
+                  "nodeType": "Return",
+                  "src": "193:10:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 10,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "returnOne",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "164:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 5,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10,
+                  "src": "182:4:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "182:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "181:6:0"
+            },
+            "scope": 11,
+            "src": "146:62:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 12,
+        "src": "129:81:0"
+      }
+    ],
+    "src": "0:210:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/nicolezhu/Desktop/soliditykoans/contracts/One.sol",
+    "exportedSymbols": {
+      "One": [
+        11
+      ]
+    },
+    "id": 12,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 11,
+        "linearizedBaseContracts": [
+          11
+        ],
+        "name": "One",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 9,
+              "nodeType": "Block",
+              "src": "187:21:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "31",
+                        "id": 6,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "201:1:0",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_1_by_1",
+                          "typeString": "int_const 1"
+                        },
+                        "value": "1"
+                      }
+                    ],
+                    "id": 7,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "200:3:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_1_by_1",
+                      "typeString": "int_const 1"
+                    }
+                  },
+                  "functionReturnParameters": 5,
+                  "id": 8,
+                  "nodeType": "Return",
+                  "src": "193:10:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 10,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "returnOne",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "164:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 5,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10,
+                  "src": "182:4:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "182:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "181:6:0"
+            },
+            "scope": 11,
+            "src": "146:62:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 12,
+        "src": "129:81:0"
+      }
+    ],
+    "src": "0:210:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xa75cb003fc9ba0044926c39e7ca8037c54687306",
+      "transactionHash": "0x31ac0e00f59414a4c7ff11b3cc670577d9aa6ef30cf36fa313d559b623bc387a"
+    }
+  },
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-08-15T06:21:36.889Z"
+}
