@@ -1,7 +1,47 @@
 # Solidity Koans
-...
+This project is currently in progress
 
-## Demo
+## Ideas
+beforeAll: before beforeEach, runs once
+beforeEach: before each spec
+beforeEachAgain(): allows chaining, when beforeEach is used
+
+afterAll and afterEach
+----------- 
+
+Levels: simple Data properties
+- learn about the assert stuff
+- nil values in ethereum
+- uint and ints properties
+- bytes and properties
+- free getter functions
+
+Levels: complex data types & storage
+- arrays
+- structs 
+- mappings
+
+Levels: transaction handling
+- addresses
+- msg.sender
+- msg.value
+- transactions
+
+Levels: conditional checks assertions
+- require
+- asserts
+
+
+Levels: Patterns (contract to contract):
+- interfaces
+- librarys
+- factory pattern
+
+Security & Best practices: 
+- ownership
+- math
+- overflow, underflow
+- re-entry
 
 ## Build Status
 
