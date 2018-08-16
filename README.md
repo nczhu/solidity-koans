@@ -57,7 +57,8 @@ Machine code:
 
 ## How to Use
  1. Make sure Ganache is running & double check network configs in truffle.js
- 2. All exercises are contract directory, functions that need to be fixed are marked by "TODO comments"
+ 2. Navigate between the "test" and "contract" directories to complete each level
+ 3. "TODO" comments indicate where to make changes to pass the test
  3. To run tests: `truffle test`
  4. To run a specific test: `truffle test ./testFilePath`
 
