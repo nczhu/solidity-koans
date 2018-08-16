@@ -5,7 +5,7 @@ import "truffle/DeployedAddresses.sol"; // This gets the address of test contrac
 import "../contracts/Assert_1.sol";
 
 contract Test_Assert_1 {
-  beforeAll()
+  // beforeAll()
   
   Assert_1 instance = Assert_1(DeployedAddresses.Assert_1());
 

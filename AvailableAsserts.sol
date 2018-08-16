@@ -1,4 +1,6 @@
 // Reference file for all the available assertion tests
+// https://github.com/trufflesuite/truffle/blob/beta/lib/testing/Assert.sol
+
 Function: fail()
 Function: equal(string)
 Function: notEqual(string)
