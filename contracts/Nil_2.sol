@@ -7,5 +7,4 @@ pragma solidity ^0.4.24;
 
 contract Nil_2 {
 
- 
 }

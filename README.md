@@ -2,46 +2,55 @@
 This project is currently in progress
 
 ## Ideas
-beforeAll: before beforeEach, runs once
-beforeEach: before each spec
-beforeEachAgain(): allows chaining, when beforeEach is used
 
-afterAll and afterEach
------------ 
-
-Levels: simple Data properties
+Levels: Simple data types
 - learn about the assert stuff
 - nil values in ethereum
 - uint and ints properties
-- bytes and properties
+- string/bytes and properties
+- addresses
 - free getter functions
 
-Levels: complex data types & storage
-- arrays
-- structs 
+Levels: Complex data types & storage
+- arrays (fixed, dynamic)
 - mappings
+- structs 
+- iteration
+- storage nuance
 
-Levels: transaction handling
-- addresses
+Levels: Function & Solidity variable types
+- variable passing
+- public, private, view, pure
+
+Levels: Handling transactions data
+- data
 - msg.sender
 - msg.value
-- transactions
+- gas
+- emitting events: good practice
+- Transaction nuances: what gets returned, async nature
 
-Levels: conditional checks assertions
+Levels: exception handling
 - require
 - asserts
+- ...
 
-
-Levels: Patterns (contract to contract):
+Levels: Design Patterns (contract to contract):
 - interfaces
 - librarys
-- factory pattern
+- factory patterns
 
 Security & Best practices: 
 - ownership
 - math
 - overflow, underflow
 - re-entry
+- tx.origin
+- delegatecall: scope
+- storage hacks
+
+Machine code: 
+- bytecode analysis
 
 ## Build Status
 
