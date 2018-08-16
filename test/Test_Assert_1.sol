@@ -1,9 +1,13 @@
 pragma solidity ^0.4.24;
 
 import "truffle/Assert.sol";
-import "truffle/DeployedAddresses.sol"; // This gets the address of test contract instance
+// This gets the instance address of your contract, deployed in testing env
+import "truffle/DeployedAddresses.sol";
 import "../contracts/Assert_1.sol";
 
+/*
+Test 1 gets you familiar with testing in Solidity, which inherits from Chai
+*/
 
 contract Test_Assert_1 {
 
@@ -17,5 +21,11 @@ contract Test_Assert_1 {
     function testShouldReturnFalse() {
         bool actual = instance.returnFalse();
         Assert.isFalse(actual, "returnFalse() should return false");
+    }
+
+    function testShouldEqual5(){
+        uint expected = 5;
+        uint actual = instance.returnFive();
+        Assert.equal(actual, expected, "returnFive() should return a uint of 5");
     }
 }
