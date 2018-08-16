@@ -20,7 +20,7 @@ contract Assert_1 {
     }
 
     // TODO
-    function returnInt() public pure returns(uint){
-        return 5;
+    function returnFive() public pure returns(uint){
+        return 6;
     }
 }
