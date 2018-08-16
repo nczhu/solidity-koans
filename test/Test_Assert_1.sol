@@ -6,16 +6,16 @@ import "../contracts/Assert_1.sol";
 
 
 contract Test_Assert_1 {
-  // beforeAll()
-  Assert_1 instance = Assert_1(DeployedAddresses.Assert_1());
 
-  function testShouldReturnTrue() {
-    bool actual = instance.returnTrue();  
-    Assert.isTrue(actual, "returnTrue() should return true");
-  }
+    Assert_1 instance = Assert_1(DeployedAddresses.Assert_1());
 
-  function testShouldReturnFalse() {
-    bool actual = instance.returnFalse();
-    Assert.isFalse(actual, "returnFalse() should return false");
-  }
+    function testShouldReturnTrue() {
+        bool actual = instance.returnTrue();  
+        Assert.isTrue(actual, "returnTrue() should return true");
+    }
+
+    function testShouldReturnFalse() {
+        bool actual = instance.returnFalse();
+        Assert.isFalse(actual, "returnFalse() should return false");
+    }
 }
