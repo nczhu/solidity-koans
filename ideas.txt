@@ -1,11 +1,37 @@
-http://www.chaijs.com/api/assert/
+beforeAll: before beforeEach, runs once
+beforeEach: before each spec
+beforeEachAgain(): allows chaining, when beforeEach is used
 
-beforeAll, beforeEach, afterAll and afterEach
-function beforeEachAgain() //allows chaining
+afterAll and afterEach
+----------- 
 
+Levels: simple Data properties
+- learn about the assert stuff
+- nil values in ethereum
+- uint and ints properties
+- bytes and properties
 
-File must start with 'Test'
-fns msut start with 'test'
+Levels: complex data types & storage
+- arrays
+- structs 
+- mappings
 
-1. learn about the assert stuff
-2.
+Levels: smart contract specific properties
+- addresses
+- msg.sender
+- msg.value
+
+Levels: smart contract assertions
+- require
+- asserts
+
+Levels: Patterns (contract to contract):
+- interfaces
+- librarys
+- factory pattern
+
+Security & Best practices: 
+- ownership
+- math
+- overflow, underflow
+- re-entry
