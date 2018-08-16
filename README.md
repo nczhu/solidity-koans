@@ -1,7 +1,56 @@
 # Solidity Koans
-...
+This project is currently in progress
 
-## Demo
+## Ideas
+
+Levels: Simple data types
+- learn about the assert stuff
+- nil values in ethereum
+- uint and ints properties
+- string/bytes and properties
+- addresses
+- free getter functions
+
+Levels: Complex data types & storage
+- arrays (fixed, dynamic)
+- mappings
+- structs 
+- iteration
+- storage nuance
+
+Levels: Function & Solidity variable types
+- variable passing
+- public, private, view, pure
+
+Levels: Handling transactions data
+- data
+- msg.sender
+- msg.value
+- gas
+- emitting events: good practice
+- Transaction nuances: what gets returned, async nature
+
+Levels: exception handling
+- require
+- asserts
+- ...
+
+Levels: Design Patterns (contract to contract):
+- interfaces
+- librarys
+- factory patterns
+
+Security & Best practices: 
+- ownership
+- math
+- overflow, underflow
+- re-entry
+- tx.origin
+- delegatecall: scope
+- storage hacks
+
+Machine code: 
+- bytecode analysis
 
 ## Build Status
 
