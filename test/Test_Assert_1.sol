@@ -13,17 +13,17 @@ contract Test_Assert_1 {
 
     Assert_1 instance = Assert_1(DeployedAddresses.Assert_1());
 
-    function testShouldReturnTrue() {
+    function testShouldReturnTrue() public {
         bool actual = instance.returnTrue();  
         Assert.isTrue(actual, "returnTrue() should return true");
     }
 
-    function testShouldReturnFalse() {
+    function testShouldReturnFalse() public {
         bool actual = instance.returnFalse();
         Assert.isFalse(actual, "returnFalse() should return false");
     }
 
-    function testShouldEqual5(){
+    function testShouldEqual5() public {
         uint expected = 5;
         uint actual = instance.returnFive();
         Assert.equal(actual, expected, "returnFive() should return a uint of 5");

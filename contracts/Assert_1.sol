@@ -2,9 +2,9 @@ pragma solidity ^0.4.24;
 
 /* 
  * Level 1: 
- * Pass all the tests in TestOne.sol
+ * Edit this file to pass all the tests in Test_Assert_1.sol
  * `Truffle test`: to execute the test. 
- * The script will auto compile & deploy for you.
+ * The script will automatically compile & deploy this test contract for you
  */
 
 contract Assert_1 {
