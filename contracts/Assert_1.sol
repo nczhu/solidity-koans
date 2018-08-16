@@ -9,17 +9,17 @@ pragma solidity ^0.4.24;
 
 contract Assert_1 {
 
-  // TODO
+  // TODO for testShouldReturnTrue()
     function returnTrue() public pure returns(bool){
         return false; 
     }
 
-    // TODO
+    // TODO testShouldReturnFalse()
     function returnFalse() public pure returns(bool){
         return true;
     }
 
-    // TODO
+    // TODO testShouldEqual5()
     function returnFive() public pure returns(uint){
         return 6;
     }

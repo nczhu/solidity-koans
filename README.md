@@ -9,7 +9,7 @@
 
 ## Setup
  1. Make sure Ganache is running & double check network configs in truffle.js
- 2. 
+ 2. All exercises are contract directory, functions that need to be fixed are marked by "TODO comments"
 
 ## Contributing
 

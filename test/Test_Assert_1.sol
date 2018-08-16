@@ -5,7 +5,10 @@ import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
 import "../contracts/Assert_1.sol";
 
-// Test 1 gets you familiar with testing in Solidity, which inherits from Chai
+/*
+Test 1 gets you familiar with testing in Solidity, which inherits from Chai
+*/
+
 contract Test_Assert_1 {
 
     Assert_1 instance = Assert_1(DeployedAddresses.Assert_1());
