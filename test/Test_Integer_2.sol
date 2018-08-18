@@ -1,7 +1,5 @@
 pragma solidity ^0.4.24;
-
 import "truffle/Assert.sol";
-
 
 /*
 
@@ -41,6 +39,7 @@ contract Test_Integer_2 {
         Assert.equal(expected, actual, "should equal bitwise (integer XOR mask)");
     }
 
+    // Observe: basic arithmetic operations work as expected
     function test_addition_and_subtraction() public {
         // TODO: change the values of "a" and "b" to pass the tests
         int a = 5;
@@ -50,9 +49,15 @@ contract Test_Integer_2 {
         int expected_diff = -1;
         Assert.equal(expected_sum, (a+b), "should correctly sum a + b");
         Assert.equal(expected_diff, (a-b), "should correctly subtract a + b");
+
     }
 
-    function test_arithmetic_remainders() public {
+    // Observe: 
+    function test_arithmetic_underflows() public {
+
+    }
+
+    function test_arithmetic_overflows() public {
 
     }
 

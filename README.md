@@ -1,5 +1,7 @@
 # Solidity Koans
-This project is currently in progress
+This project is currently in progress - or is it? I don't know. 
+
+Out of nowhere, the mind comes forth.
 
 ## Ideas
 
