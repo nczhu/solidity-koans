@@ -2,7 +2,9 @@ pragma solidity ^0.4.24;
 import "truffle/Assert.sol";
 
 /*
-
+ * In this level, we learn about integers in Solidity
+ * We throw out previous conventions
+ * And keep an open mind
 */
 contract Test_Integer_2 {
 
@@ -52,8 +54,9 @@ contract Test_Integer_2 {
 
     }
 
-    // Observe: 
+    // Observe: basic arithmetic operations no longer work as expected
     function test_arithmetic_underflows() public {
+        int8 a = ;
 
     }
 
