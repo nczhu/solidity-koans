@@ -16,7 +16,6 @@ contract Test_Integer_2 {
 
         // TODO: fix this expected value
         int expected = 1;
-
         Assert.equal(expected, actual, "nil values should default to 0");  
     }
 
@@ -27,7 +26,7 @@ contract Test_Integer_2 {
         uint mask = 56;             //or 111000 bitwise
         uint actual = integer & mask; //or 101000 bitwise
 
-        // TODO: give the expected uint value of the bitwise result
+        // TODO: give the expected uint value of the bitwise
         uint expected = 0;     
         Assert.equal(expected, actual, "should equal bitwise (integer AND mask)");
     }
@@ -37,13 +36,20 @@ contract Test_Integer_2 {
         uint mask = 56;             //or 111000 bitwise
         uint actual = integer ^ mask; //or 010010 bitwise
 
-        // TODO: give the expected uint value of the bitwise result
+        // TODO: give the expected uint value of the bitwise
         uint expected = 0;     
         Assert.equal(expected, actual, "should equal bitwise (integer XOR mask)");
     }
 
     function test_addition_and_subtraction() public {
+        // TODO: change the values of "a" and "b" to pass the tests
+        int a = 5;
+        int b = -32;
 
+        int expected_sum = 3;
+        int expected_diff = -1;
+        Assert.equal(expected_sum, (a+b), "should correctly sum a + b");
+        Assert.equal(expected_diff, (a-b), "should correctly subtract a + b");
     }
 
     function test_arithmetic_remainders() public {
