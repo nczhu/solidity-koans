@@ -6,7 +6,7 @@ import "truffle/Assert.sol";
  * We throw out previous conventions
  * And open our mind to new possibilities
 */
-contract Test_Integer_2 {
+contract Test_Integers_2 {
 
     /* In Solidity, there's no "nil" or "null" or "undefined" default value
      * Uninitiated values are set to 0 by default.
