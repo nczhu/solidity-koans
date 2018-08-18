@@ -1,11 +1,15 @@
 # Solidity Koans
-This project is currently in progress
 
-## Ideas
+The Beginner’s Mind
+“If your mind is empty, it is always ready for anything, it is open to everything. In the beginner’s mind there are many possibilities, but in the expert’s mind there are few. ”
+
+So humble yo-self and do some Solidity Koans ;) 
+
+## Ideas To Implement
 
 Levels: Simple data types
-- learn about the assert stuff
-- uint and ints properties, and its nil values
+- [done]learn about the assert stuff
+- [in progress] uint and ints properties, nils, underflow/overflows
 - string/bytes and properties
 - addresses
 - free getter functions

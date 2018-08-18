@@ -1,10 +1,10 @@
 pragma solidity ^0.4.24;
-
 import "truffle/Assert.sol";
 
-
 /*
-
+ * In this level, we learn about integers in Solidity
+ * We throw out previous conventions
+ * And open our mind to new possibilities
 */
 contract Test_Integer_2 {
 
@@ -41,6 +41,7 @@ contract Test_Integer_2 {
         Assert.equal(expected, actual, "should equal bitwise (integer XOR mask)");
     }
 
+    // Observe: basic arithmetic operations work as expected
     function test_addition_and_subtraction() public {
         // TODO: change the values of "a" and "b" to pass the tests
         int a = 5;
@@ -50,15 +51,26 @@ contract Test_Integer_2 {
         int expected_diff = -1;
         Assert.equal(expected_sum, (a+b), "should correctly sum a + b");
         Assert.equal(expected_diff, (a-b), "should correctly subtract a + b");
+
     }
 
-    function test_arithmetic_remainders() public {
+    // Observe: basic arithmetic operations no longer work as expected
+    function test_arithmetic_underflows() public {
+        uint min = 0;
+        uint result = min - 1;
+        // TODO: change the test to expect the correct outcome
+        Assert.isAtMost(result, min, "result should be 0 or less than 0");
+    }
 
+    function test_arithmetic_overflows() public {
+        uint max = 115792089237316195423570985008687907853269984665640564039457584007913129639935;
+        uint result = max + 1;
+        // TODO: change the test to expect the correct outcome
+        Assert.isAtLeast(result, max, "result should be 255 or above 255");
     }
 
 //  The expression x << y is equivalent to x * 2**y
     function test_left_shift_operand() public {
 
     }
-
 }
