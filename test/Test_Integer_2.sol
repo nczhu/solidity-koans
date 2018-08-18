@@ -19,8 +19,7 @@ contract Test_Integer_2 {
         Assert.equal(expected, actual, "nil values should default to 0");  
     }
 
-    /* Bit operators can be used to mask Solidity integers
-    */
+    // Bit operators can be used to mask Solidity integers
     function test_bitwise_operator_and() public {
         uint integer = 42;          //or 101010 bitwise
         uint mask = 56;             //or 111000 bitwise
@@ -39,6 +38,18 @@ contract Test_Integer_2 {
         // TODO: give the expected uint value of the bitwise
         uint expected = 0;     
         Assert.equal(expected, actual, "should equal bitwise (integer XOR mask)");
+    }
+
+    //  << and >> shifts the binary values
+    function test_left_shift_operand() public {
+        uint a = 555555;
+        uint b = 5;
+
+        // TODO: Change n to represent the correct shift base value
+        uint n = 3;
+        uint expected = a<<b;
+        uint actual = a * n**b;     //** is exponentiation
+        Assert.equal(expected, actual, "should correctly shift binary left");
     }
 
     // Observe: basic arithmetic operations work as expected
@@ -67,10 +78,5 @@ contract Test_Integer_2 {
         uint result = max + 1;
         // TODO: change the test to expect the correct outcome
         Assert.isAtLeast(result, max, "result should be 255 or above 255");
-    }
-
-//  The expression x << y is equivalent to x * 2**y
-    function test_left_shift_operand() public {
-
     }
 }
