@@ -56,20 +56,21 @@ contract Test_Integer_2 {
 
     // Observe: basic arithmetic operations no longer work as expected
     function test_arithmetic_underflows() public {
-        uint8 a = 0;
-        uint8 result = a - 1;
-        // TODO: change the expected value to pass this test
-        uint8 expected = 0;
-        Assert.isBelow(actual, expected, "should be 0 or less than 0");
+        uint min = 0;
+        uint result = min - 1;
+        // TODO: change the test to expect the correct outcome
+        Assert.isAtMost(result, min, "result should be 0 or less than 0");
     }
 
     function test_arithmetic_overflows() public {
-        
+        uint max = 115792089237316195423570985008687907853269984665640564039457584007913129639935;
+        uint result = max + 1;
+        // TODO: change the test to expect the correct outcome
+        Assert.isAtLeast(result, max, "result should be 255 or above 255");
     }
 
 //  The expression x << y is equivalent to x * 2**y
     function test_left_shift_operand() public {
 
     }
-
 }
