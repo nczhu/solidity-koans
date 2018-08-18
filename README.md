@@ -5,11 +5,11 @@ The Beginner’s Mind
 
 So humble yo-self and do some Solidity Koans ;) 
 
-## Ideas
+## Ideas To Implement
 
 Levels: Simple data types
-- learn about the assert stuff
-- uint and ints properties, and its nil values
+- [done]learn about the assert stuff
+- [in progress] uint and ints properties, nils, underflow/overflows
 - string/bytes and properties
 - addresses
 - free getter functions

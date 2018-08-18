@@ -4,7 +4,7 @@ import "truffle/Assert.sol";
 /*
  * In this level, we learn about integers in Solidity
  * We throw out previous conventions
- * And keep an open mind
+ * And open our mind to new possibilities
 */
 contract Test_Integer_2 {
 
@@ -56,12 +56,15 @@ contract Test_Integer_2 {
 
     // Observe: basic arithmetic operations no longer work as expected
     function test_arithmetic_underflows() public {
-        int8 a = ;
-
+        uint8 a = 0;
+        uint8 result = a - 1;
+        // TODO: change the expected value to pass this test
+        uint8 expected = 0;
+        Assert.isBelow(actual, expected, "should be 0 or less than 0");
     }
 
     function test_arithmetic_overflows() public {
-
+        
     }
 
 //  The expression x << y is equivalent to x * 2**y

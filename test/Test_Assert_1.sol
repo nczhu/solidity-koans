@@ -6,8 +6,9 @@ import "truffle/DeployedAddresses.sol";
 import "../contracts/Assert_1.sol";
 
 /*
- * Test 1 gets you familiar with testing in Solidity, which inherits from Chai
- * Look in ../contracts/Assert_1.sol for the functions you must modify to pass this level
+ * In this level, we assert a few assertions
+ * Some are true and some are false
+ * Keep an open mind and explore the layout of Solidity Koans
 */
 
 contract Test_Assert_1 {
