@@ -8,7 +8,8 @@ import "../contracts/Assert_1.sol";
 /*
  * In this level, we assert a few assertions
  * Some are true and some are false
- * Keep an open mind and explore the layout of Solidity Koans
+ * The point isn't to be binary 
+ * But to explore the foundations of Solidity Koans
 */
 
 contract Test_Assert_1 {

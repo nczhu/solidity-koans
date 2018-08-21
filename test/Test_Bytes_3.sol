@@ -7,6 +7,7 @@ contract Test_Bytes_3 {
 
     }
 
+    // Ethereum's smart contract storage slot are 256 bits each, or 32 bytes.
     function test_bytes_default_to_32() public {
 
     }
