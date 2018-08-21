@@ -8,9 +8,20 @@ import "truffle/Assert.sol";
 */
 contract Test_Integers_2 {
 
-    /* In Solidity, there's no "nil" or "null" or "undefined" default value
-     * Uninitiated values are set to 0 by default.
-     */
+    // Ethereum's smart contract storage slot are 256 bits each, or 32 bytes.
+    // You can save storage space (i.e. gas) by initiating ints to the minimum needed size.
+    function test_ints_can_be_stored_in_various_sizes() public {
+        uint8 eight_bits;
+        uint16 sixteen_bits;
+        
+        // TODO: set max_bits to the largest possible uint that can be stored in 256 bits
+        uint256 max_bits = 0; 
+        uint max_default_bits = max_bits; //uint defaults to uint256
+        Assert.isAtLeast(max_default_bits, 115792089237316195423570985008687907853269984665640564039457584007913129639934, "the default int value should have the largest storage space");
+    }
+
+    //In Solidity, there's no "nil" or "null" or "undefined" default value
+    //Uninitiated values are set to 0 by default
     function test_nil_ints_equal_zero() public {
         int actual;
 
