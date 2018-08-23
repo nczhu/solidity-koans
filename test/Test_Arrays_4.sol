@@ -1,6 +1,15 @@
 pragma solidity ^0.4.24;
 import "truffle/Assert.sol";
 
+/* One day Chao-chou fell down in the snow, and called out, 
+ * “Help me up! Help me up!” 
+ * A monk came and lay down beside him. 
+ * Chao-chou got up and went away.
+ * 
+ * In this level we learn about arrays
+ * It might get tough but the monk reminds you that 
+ * you can solve it, all by yourself.
+ */
 contract Test_Arrays_4 {
 
     function test_array_initialization() public {

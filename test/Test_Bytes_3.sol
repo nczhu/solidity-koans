@@ -31,7 +31,7 @@ contract Test_Bytes_3 {
         bytes2 data = 0xffff;
         bytes2 mask = 0xf0f0;
 
-        // TODO: predict the value of the expected values to pass the test
+        // TODO: fill in the byte value of the "expected_and" and "expected_xor" to pass the test
         bytes2 expected_and; 
         bytes2 expected_xor;
 
@@ -39,12 +39,10 @@ contract Test_Bytes_3 {
         Assert.equal(expected_xor, (data ^ mask), "should return the XOR of data and mask");
     }
 
-    /* Note: "bytes" indicates a byte ARRAY
-     * Warning: "bytes" doesn't default to "bytes32" (different to how "uint" defaults to "uint256")
+    /* "bytes" denote a dynamically sized byte ARRAY
+     * It is not a value type
+     * Note: different to how "uint" defaults to "uint256")
      */
-    function test_fixed_byte_arrays() public {
-    }
-
     function test_dynamic_byte_arrays() public {
         // As a rule of thumb, use bytes for arbitrary-length raw byte data and string for arbitrary-length string (UTF-8) data. 
     }
@@ -54,3 +52,4 @@ contract Test_Bytes_3 {
 
     }
 }
+
