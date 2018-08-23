@@ -39,15 +39,23 @@ contract Test_Bytes_3 {
         Assert.equal(expected_xor, (data ^ mask), "should return the XOR of data and mask");
     }
 
-    /* "bytes" denote a dynamically sized byte ARRAY
+    /* "bytes" denote a dynamically sized byte ARRAY, like byte[]
      * It is not a value type
      * Note: different to how "uint" defaults to "uint256")
      */
     function test_dynamic_byte_arrays() public {
-        // As a rule of thumb, use bytes for arbitrary-length raw byte data and string for arbitrary-length string (UTF-8) data. 
+    
     }
 
-    // Use "string" to store arbitrary-length string
+    function test_enlarging_byte_arrays() public {
+        bytes byte_array = new bytes(5);   //instantiates to 0x0000000000
+        byte[] bta; 
+
+    }
+
+    /* As a rule of thumb, use bytes for arbitrary-length raw byte data 
+     * and string for arbitrary-length string (UTF-8) data. 
+     */
     function test_dynamic_size_strings() public {
 
     }
