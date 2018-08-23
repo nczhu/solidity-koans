@@ -40,16 +40,14 @@ contract Test_Bytes_3 {
     }
 
     /* "bytes" denote a dynamically sized byte ARRAY, like byte[]
-     * It is not a value type
-     * Note: different to how "uint" defaults to "uint256")
      */
     function test_dynamic_byte_arrays() public {
-    
+        // this part needs to be in a contract
+
     }
 
     function test_enlarging_byte_arrays() public {
-        bytes byte_array = new bytes(5);   //instantiates to 0x0000000000
-        byte[] bta; 
+    
 
     }
 
