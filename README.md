@@ -22,10 +22,11 @@ Levels: Complex data types & storage
 - storage nuance
 
 Levels: Function & Solidity variable types
-- variable passing
-- public, private, view, pure
+- variable modifers: public private
+- Visbility modifiers: public, private, external, etc.
+- Getter modifiers: view, pure, constant
 
-Levels: Handling transactions data
+Levels: Handling transactions data (special variables)
 - data
 - msg.sender
 - msg.value

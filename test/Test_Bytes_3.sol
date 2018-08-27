@@ -48,7 +48,6 @@ contract Test_Bytes_3 {
 
     function test_enlarging_byte_arrays() public {
     
-
     }
 
     /* As a rule of thumb, use bytes for arbitrary-length raw byte data 
