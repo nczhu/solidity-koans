@@ -53,6 +53,7 @@ library Assert {
 
     byte constant MINUS = byte('-');
 
+
     /*
         Event: TestEvent
         Fired when an assertion is made.
@@ -298,6 +299,17 @@ library Assert {
     }
 
     /*
+        Author: @nczhu
+        Function: isTrue for Koans
+        Autofail the assertion and log the error message
+        Returns: nothing
+    */
+    function isTrue(bytes1 b, string message) public {
+        b = 0x00;    // arbitrary call to suppress compiler warning
+        _report(false, message);
+    }
+
+    /*
         Function: isFalse
         Assert that a boolean is 'false'.
         : b == false
@@ -310,6 +322,17 @@ library Assert {
     function isFalse(bool b, string message) public returns (bool result) {
         result = !b;
         _report(result, message);
+    }
+
+    /*
+        Author: @nczhu
+        Function: isFalse for Koans
+        Autofail the assertion and log the error message
+        Returns: nothing
+    */
+    function isFalse(bytes1 b, string message) public {
+        b = 0x00;    // arbitrary call to suppress compiler warning
+        _report(false, message);
     }
 
     /*
