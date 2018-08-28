@@ -7,19 +7,23 @@ import "./Koans.sol";
 /*
     In this level, we assert a few assertions
     Some are true and some are false
-    The point isn't to be binary 
-    But to explore the foundations of Solidity Koans
+    The point isn't to be redundant
+    But to learn how to test Solidity code
 */  
 
 contract Test_Assert_1 is Koans{
 
-    /* 
-        Similar to Chai and Mocha, you can test boolean results
-    */
+    // You can make the tests fail in specific places in your code
+    function test_should_fail_by_default() public {
+        Assert.fail("should always fail, delete this line to proceed");
+    }
+
+    // You can test if a condition returns true
     function test_should_return_true() public {
         Assert.isTrue(__, "should return true");
     }
 
+    // You can test if a condition returns true
     function test_should_return_false() public {
         Assert.isFalse(__, "should return false");
     }

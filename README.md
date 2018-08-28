@@ -3,7 +3,10 @@
 The Beginner’s Mind
 “If your mind is empty, it is always ready for anything, it is open to everything. In the beginner’s mind there are many possibilities, but in the expert’s mind there are few. ”
 
-So humble yo-self and do some Solidity Koans ;) 
+So humble yo-self and do some Solidity Koans ;)
+
+## Directions
+Fill in the double underscores: __ to pass each unit test
 
 ## Ideas To Implement
 
