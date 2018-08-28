@@ -5,8 +5,17 @@ The Beginner’s Mind
 
 So humble yo-self and do some Solidity Koans ;)
 
-## Directions
+## Directions & Troubleshooting
+
 Fill in the double underscores: __ to pass each unit test
+
+ 1. Make sure Ganache is running & double check network configs in truffle.js
+ 2. Navigate between the "test" and "contract" directories to complete each level
+ 3. "TODO" comments indicate where to make changes to pass the test
+ 3. To run tests: `truffle test`
+ 4. To run a specific test: `truffle test ./testFilePath`
+
+Hint: try typecasting your answer to solve compiler issues
 
 ## Ideas To Implement
 
@@ -61,17 +70,6 @@ Security & Best practices:
 Machine code: 
 - bytecode analysis
 
-## Design Decisions
-- Rewrote Assert.sol to accommodate for additional data types. Modifications are signed inline with @nczhu
-- Rewrote Assert.sol to understand __ syntax in Koans
-
-## How to Use
- 1. Make sure Ganache is running & double check network configs in truffle.js
- 2. Navigate between the "test" and "contract" directories to complete each level
- 3. "TODO" comments indicate where to make changes to pass the test
- 3. To run tests: `truffle test`
- 4. To run a specific test: `truffle test ./testFilePath`
-
 ## Contributing
 
  1. Fork it the project
@@ -81,6 +79,10 @@ Machine code:
  5. Create a new Pull Request
 
 See full list of outstanding [issues](https://github.com/nczhu/soliditykoans/issues) here.
+
+## Design Decisions
+- Rewrote Assert.sol to accommodate for additional data types. Modifications are signed inline with @nczhu
+- Rewrote Assert.sol to understand __ syntax in Koans
 
 ## License
 MIT License

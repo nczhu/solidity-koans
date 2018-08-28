@@ -28,18 +28,18 @@ contract Test_Assert_1 is Koans{
         Assert.isFalse(__, "should return false");
     }
 
-    // You can test for equality on basic data types
+    // You can test for (in)equality on basic data types
     function test_bools_are_equal() public {
         bool actual = true;
         Assert.equal(actual, __ , "should be equal"); 
     }
 
-    // But you can only compare apples to apples
+    // But you can only compare apples to apples, so typecast your values to be the same
     function test_ints_are_not_equal() public {
         int actual = -5;
+        int expected = int( __ );
 
-        // Hint: try typecasting your answer to solve compiler issues
-        Assert.notEqual(actual, __ , "should NOT be equal");
+        Assert.notEqual(actual, expected, "should NOT be equal");
     }
 
     // function test_should_equal_5() public {
