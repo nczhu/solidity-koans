@@ -53,6 +53,7 @@ library Assert {
 
     byte constant MINUS = byte('-');
 
+
     /*
         Event: TestEvent
         Fired when an assertion is made.
@@ -80,22 +81,20 @@ library Assert {
         return false;
     }
 
-
-    // Nicole editting, using bytes1 to denote __
  
     // ************************************** KOANS **************************************
+    // function isTrue(bytes1 b, string message) public returns (string result) {
+        // _report(false, message);
+    // }
 
-    function isTrue(bytes1 b, string message) public returns (string result) {
-        _report(false, message);
-    }
+    // function isFalse(fixed b, string message) public returns (string result) {
+    //     _report(false, message);
+    // }
 
-    function isFalse(bytes1 b, string message) public returns (string result) {
-        _report(false, message);
-    }
 
-    function equal(bytes1 b, TODO, string message) public returns (string result) {
-        _report(false, message);
-    }
+    // function equal(fixed b, TODO, string message) public returns (string result) {
+    //     _report(false, message);
+    // }
 
     // todo fix this
     // function _report(string input, string message) internal {
@@ -329,6 +328,17 @@ library Assert {
     }
 
     /*
+        Author: @nczhu
+        Function: isTrue for Koans
+        Autofail the assertion and log the error message
+        Returns: nothing
+    */
+    function isTrue(bytes1 b, string message) public {
+        b = 0x00;    // arbitrary call to suppress compiler warning
+        _report(false, message);
+    }
+
+    /*
         Function: isFalse
         Assert that a boolean is 'false'.
         : b == false
@@ -341,6 +351,17 @@ library Assert {
     function isFalse(bool b, string message) public returns (bool result) {
         result = !b;
         _report(result, message);
+    }
+
+    /*
+        Author: @nczhu
+        Function: isFalse for Koans
+        Autofail the assertion and log the error message
+        Returns: nothing
+    */
+    function isFalse(bytes1 b, string message) public {
+        b = 0x00;    // arbitrary call to suppress compiler warning
+        _report(false, message);
     }
 
     /*

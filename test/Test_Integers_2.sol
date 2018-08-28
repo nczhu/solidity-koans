@@ -1,12 +1,14 @@
 pragma solidity ^0.4.24;
-import "truffle/Assert.sol";
+
+import "../contracts/Assert.sol";
+import "./Koans.sol";
 
 /*
  * In this level, we learn about bits and ints in Solidity
  * We throw out previous conventions
  * And open our mind to new possibilities
 */
-contract Test_Integers_2 {
+contract Test_Integers_2 is Koans{
 
     /* Ethereum's smart contract storage slot are 256 bits each, or 32 bytes.
      * You can save storage space (i.e. gas) by initiating ints to the minimum needed size.
@@ -87,7 +89,7 @@ contract Test_Integers_2 {
     }
 
     function test_arithmetic_overflows() public {
-        uint max = 115792089237316195423570985008687907853269984665640564039457584007913129639935;
+        uint max = MAX_UINT;
         uint result = max + 1;
         
         // TODO: change the test to expect the correct outcome

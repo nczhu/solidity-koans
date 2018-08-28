@@ -1,37 +1,35 @@
 pragma solidity ^0.4.24;
 
-// Best thing to do is to overwrite this
-// import "truffle/Assert.sol";
-// This gets the instance address of your contract, deployed in testing env
-import "truffle/DeployedAddresses.sol";
-import "../contracts/Assert_1.sol";
+// This is the Koans testing library, which modifies Truffle's standard testing library
 import "../contracts/Assert.sol";
+import "./Koans.sol";
 
 /*
- * In this level, we assert a few assertions
- * Some are true and some are false
- * The point isn't to be binary 
- * But to explore the foundations of Solidity Koans
+    In this level, we assert a few assertions
+    Some are true and some are false
+    The point isn't to be binary 
+    But to explore the foundations of Solidity Koans
 */  
 
-contract Test_Assert_1 {
-    bytes1 public __; 
+contract Test_Assert_1 is Koans{
 
-    Assert_1 instance = Assert_1(DeployedAddresses.Assert_1());
-
+    /* 
+        Similar to Chai and Mocha, you can test boolean results
+    */
     function test_should_return_true() public {
-        bool actual = instance.returnTrue();  
         Assert.isTrue(__, "should return true");
     }
 
     function test_should_return_false() public {
-        bool actual = instance.returnFalse();
         Assert.isFalse(__, "should return false");
     }
 
-    function test_should_equal_5() public {
-        uint expected = 5;
-        uint actual = instance.returnFive();
-        Assert.equal(__, expected, "should return a uint of 5");
-    }
+    /* 
+        You can test for a == b
+    */
+    // function test_should_equal_5() public {
+    //     uint expected = 5;
+    //     uint actual = instance.returnFive();
+    //     Assert.equal(__, expected, "should return a uint of 5");
+    // }
 }

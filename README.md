@@ -58,9 +58,9 @@ Security & Best practices:
 Machine code: 
 - bytecode analysis
 
-## Build Status
-
-## Built Using
+## Design Decisions
+- Rewrote Assert.sol to accommodate for additional data types. Modifications are signed inline with @nczhu
+- Rewrote Assert.sol to understand __ syntax in Koans
 
 ## How to Use
  1. Make sure Ganache is running & double check network configs in truffle.js
