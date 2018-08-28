@@ -8,9 +8,8 @@ import "./Koans.sol";
     In this level, we assert a few assertions
     Some are true and some are false
     The point isn't to be redundant
-    But to learn how to test Solidity code
+    But to learn Solidity testing
 */  
-
 contract Test_Assert_1 is Koans{
 
     // You can make the tests fail in specific places in your code
@@ -42,9 +41,5 @@ contract Test_Assert_1 is Koans{
         Assert.notEqual(actual, expected, "should NOT be equal");
     }
 
-    // function test_should_equal_5() public {
-    //     uint expected = 5;
-    //     uint actual = instance.returnFive();
-    //     Assert.equal(__, expected, "should return a uint of 5");
-    // }
+    // For more available tests, check out https://github.com/trufflesuite/truffle/blob/master/packages/truffle-core/lib/testing/Assert.sol
 }
