@@ -1,16 +1,18 @@
 pragma solidity ^0.4.24;
 
-import "truffle/Assert.sol";
+// Best thing to do is to overwrite this
+// import "truffle/Assert.sol";
 // This gets the instance address of your contract, deployed in testing env
 import "truffle/DeployedAddresses.sol";
 import "../contracts/Assert_1.sol";
+import "../contracts/Assert.sol";
 
 /*
  * In this level, we assert a few assertions
  * Some are true and some are false
  * The point isn't to be binary 
  * But to explore the foundations of Solidity Koans
-*/
+*/  
 
 contract Test_Assert_1 {
 
