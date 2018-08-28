@@ -21,20 +21,24 @@ Solution: try typecasting your answer to solve compiler issues
 
 ## Ideas To Implement
 
-Levels: Simple data types
-- [done]learn about the assert stuff
-- [in progress] uint and ints properties, nils, underflow/overflows
-- string/bytes and properties
+----------- Data -----------
+Levels: Elementary data types
+- asserts: DONE
+- numbers: IN PROGRESS
 - addresses
-- free getter functions
+- everything is a byte (primitive)
+- strings
 
-Levels: Complex data types & storage
+
+
+Levels: Complex data types
 - arrays (fixed, dynamic)
 - mappings
 - structs 
 - iteration
 - storage nuance
 
+----------- Smart contracts -----------
 Levels: Function & Solidity variable types
 - variable modifers: public private
 - Visbility modifiers: public, private, external, etc.
@@ -54,13 +58,18 @@ Levels: exception handling
 - asserts
 - ...
 
+----------- Web3, Clients, Patterns ----------- 
+
+Levels: connecting the client
+- free getter functions
+
 Levels: Design Patterns (contract to contract):
 - interfaces
 - librarys
 - scope variable: super
 - factory patterns
 
-Security & Best practices: 
+----------- Security -----------  
 - ownership
 - math
 - overflow, underflow
@@ -69,7 +78,7 @@ Security & Best practices:
 - delegatecall: scope
 - storage hacks
 
-Machine code: 
+----------- Machine code ----------- 
 - bytecode analysis
 
 ## Contributing
