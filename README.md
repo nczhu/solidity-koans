@@ -5,7 +5,7 @@ The Beginner’s Mind
 
 So humble yo-self and do some Solidity Koans ;)
 
-## Directions & Troubleshooting
+## Directions
 
 Fill in the double underscores: __ to pass each unit test
 
@@ -15,7 +15,9 @@ Fill in the double underscores: __ to pass each unit test
  3. To run tests: `truffle test`
  4. To run a specific test: `truffle test ./testFilePath`
 
-Hint: try typecasting your answer to solve compiler issues
+## Troubleshooting
+Issue: Member "..." not unique after argument-dependent lookup in type(library Assert)
+Solution: try typecasting your answer to solve compiler issues
 
 ## Ideas To Implement
 
