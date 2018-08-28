@@ -26,13 +26,14 @@ Levels: Function & Solidity variable types
 - Visbility modifiers: public, private, external, etc.
 - Getter modifiers: view, pure, constant
 
-Levels: Handling transactions data (special variables)
+Levels: Handling transactions data (special variables). B9
 - data
 - msg.sender
 - msg.value
 - gas
 - emitting events: good practice
 - Transaction nuances: what gets returned, async nature
+- scope variable: this
 
 Levels: exception handling
 - require
@@ -42,6 +43,7 @@ Levels: exception handling
 Levels: Design Patterns (contract to contract):
 - interfaces
 - librarys
+- scope variable: super
 - factory patterns
 
 Security & Best practices: 

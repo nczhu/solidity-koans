@@ -1,9 +1,11 @@
 pragma solidity ^0.4.24;
 
+// Best thing to do is to overwrite this
 import "truffle/Assert.sol";
 // This gets the instance address of your contract, deployed in testing env
 import "truffle/DeployedAddresses.sol";
 import "../contracts/Assert_1.sol";
+import "./Koans.sol";
 
 /*
  * In this level, we assert a few assertions
@@ -12,13 +14,17 @@ import "../contracts/Assert_1.sol";
  * But to explore the foundations of Solidity Koans
 */
 
-contract Test_Assert_1 {
+// can have this contract inherit Koans?
 
+    
+
+contract Test_Assert_1 is Koans{
+    bool public constant __ = false;
     Assert_1 instance = Assert_1(DeployedAddresses.Assert_1());
 
     function test_should_return_true() public {
         bool actual = instance.returnTrue();  
-        Assert.isTrue(actual, "should return true");
+        Assert.isTrue(__, "should return true");
     }
 
     function test_should_return_false() public {
