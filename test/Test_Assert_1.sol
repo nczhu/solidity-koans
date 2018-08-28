@@ -15,22 +15,23 @@ import "../contracts/Assert.sol";
 */  
 
 contract Test_Assert_1 {
+    bytes1 public __; 
 
     Assert_1 instance = Assert_1(DeployedAddresses.Assert_1());
 
     function test_should_return_true() public {
         bool actual = instance.returnTrue();  
-        Assert.isTrue(actual, "should return true");
+        Assert.isTrue(__, "should return true");
     }
 
     function test_should_return_false() public {
         bool actual = instance.returnFalse();
-        Assert.isFalse(actual, "should return false");
+        Assert.isFalse(__, "should return false");
     }
 
     function test_should_equal_5() public {
         uint expected = 5;
         uint actual = instance.returnFive();
-        Assert.equal(actual, expected, "should return a uint of 5");
+        Assert.equal(__, expected, "should return a uint of 5");
     }
 }

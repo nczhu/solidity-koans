@@ -62,6 +62,9 @@ library Assert {
     */
     event TestEvent(bool indexed result, string message);
 
+    // Nicole
+    // event TestEvent(string indexed fillmein, string message);    
+
     // ************************************** general **************************************
 
     /*
@@ -76,6 +79,34 @@ library Assert {
         _report(false, message);
         return false;
     }
+
+
+    // Nicole editting, using bytes1 to denote __
+ 
+    // ************************************** KOANS **************************************
+
+    function isTrue(bytes1 b, string message) public returns (string result) {
+        _report(false, message);
+    }
+
+    function isFalse(bytes1 b, string message) public returns (string result) {
+        _report(false, message);
+    }
+
+    function equal(bytes1 b, TODO, string message) public returns (string result) {
+        _report(false, message);
+    }
+
+    // todo fix this
+    // function _report(string input, string message) internal {
+    //     emit TestEvent(input, message);
+    // }
+
+    // Nicole editting end
+
+
+
+
 
     // ************************************** strings **************************************
 
