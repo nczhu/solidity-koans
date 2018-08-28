@@ -28,9 +28,18 @@ contract Test_Assert_1 is Koans{
         Assert.isFalse(__, "should return false");
     }
 
-    /* 
-        You can test for a == b
-    */
+    // You can test for equality on all basic data types
+    function test_bools_are_equal() public {
+        bool actual = true;
+        Assert.equal(actual, __ , "should be equal"); 
+    }
+
+    // Likewise, you can assert inequality
+    // function test_ints_are_not_equal() public {
+    //     int actual = -5;
+    //     Assert.notEqual(actual, -5 , "should NOT be equal");
+    // }
+
     // function test_should_equal_5() public {
     //     uint expected = 5;
     //     uint actual = instance.returnFive();

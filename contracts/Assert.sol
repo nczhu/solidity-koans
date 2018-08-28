@@ -355,6 +355,18 @@ library Assert {
     }
 
     /*
+        Author: @nczhu
+        Function: equal(int) for Koans
+        Autofail the assertion and log the error message
+        Returns: nothing
+    */
+    function equal(bool a, bytes1 b, string message) public {
+        a = false;
+        b = 0x00;    // arbitrary call to suppress compiler warning
+        _report(false, message);
+    }
+
+    /*
         Function: notEqual(bool)
         Assert that two booleans are not equal.
         : A != B
@@ -547,6 +559,18 @@ library Assert {
     }
 
     /*
+        Author: @nczhu
+        Function: equal(int) for Koans
+        Autofail the assertion and log the error message
+        Returns: nothing
+    */
+    function equal(int a, bytes1 b, string message) public {
+        a = 0; 
+        b = 0x00;    // arbitrary call to suppress compiler warning
+        _report(false, message);
+    }
+
+    /*
         Function: notEqual(int)
         Assert that two (256 bit) signed integers are not equal.
         : A != B
@@ -563,6 +587,18 @@ library Assert {
             _report(result, message);
         else
             _report(result, _appendTagged(_tag(a, "Tested"), _tag(b, "Against"), message));
+    }
+
+    /*
+        Author: @nczhu
+        Function: notEqual(int) for Koans
+        Autofail the assertion and log the error message
+        Returns: nothing
+    */
+    function notEqual(int a, bytes1 b, string message) public {
+        a = 0;
+        b = 0x00;    // arbitrary call to suppress compiler warning
+        _report(false, message);
     }
 
     /*

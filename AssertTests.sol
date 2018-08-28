@@ -1,6 +1,7 @@
 // https://truffleframework.com/docs/truffle/testing/testing-your-contracts
 // https://truffleframework.com/docs/truffle/testing/writing-tests-in-javascript
 
+// equal (actual, expected, ...)
 //*** https://github.com/trufflesuite/truffle/blob/master/packages/truffle-core/lib/testing/Assert.sol
 Function: fail()
 Function: equal(string)
