@@ -7,11 +7,8 @@ So humble yo-self and do some Solidity Koans ;)
 
 ## Directions
 
-Fill in the double underscores: __ to pass each unit test
-
  1. Make sure Ganache is running & double check network configs in truffle.js
- 2. Navigate between the "test" and "contract" directories to complete each level
- 3. "TODO" comments indicate where to make changes to pass the test
+ 2. Fill in the double underscores: __ to pass each unit test
  3. To run tests: `truffle test`
  4. To run a specific test: `truffle test ./testFilePath`
 

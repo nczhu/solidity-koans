@@ -8,19 +8,18 @@ import "./Koans.sol";
     We throw out previous conventions
     And open our mind to new possibilities
 */
-contract Test_Numbers_2 is Koans{
-
+contract Test_Numbers_2 is Koans {
 
     /*  TODO
         test_solidity_supports_ints_and_uints() {
-    
+            
         }
     */
 
     // Ethereum's smart contract storage slots are 256 bits each, or 32 bytes
     // Storing things to the blockhain costs money (ethers/gas)
     // You can save money by allocating sizes
-    function test_you_can_modify_storage_size() public {
+    function test_you_can_specify_storage_size() public {
         uint8 eight_bits;
         uint16 sixteen_bits;
         
@@ -29,6 +28,8 @@ contract Test_Numbers_2 is Koans{
         uint max_default_bits = max_bits; //uint defaults to uint256
         Assert.isAtLeast(max_default_bits, 115792089237316195423570985008687907853269984665640564039457584007913129639934, "the default int value should have the largest storage space");
     }
+
+    // you can modify storage size, but shrinking storage might lose data
 
     // In Solidity, there's no "nil" or "null" or "undefined" default value
     // Uninitiated values are set to 0 by default
@@ -73,10 +74,12 @@ contract Test_Numbers_2 is Koans{
         Assert.equal(expected, actual, "should correctly shift binary left");
     }
 
+    // refactor: test ints can be added and subtracted
     // You can do basic arithmetic operations on ints
-    function test_addition_and_subtraction() public {
+    function test_ints_can_be_mathed() public {
         
         // TODO: change the values of "a" and "b" to pass the tests
+        // add, subtract, divide, mod, **
         int a = 5;
         int b = -32;
         int expected_sum = 3;
@@ -84,6 +87,9 @@ contract Test_Numbers_2 is Koans{
         Assert.equal(expected_sum, (a+b), "should correctly sum a + b");
         Assert.equal(expected_diff, (a-b), "should correctly subtract a + b");
     }
+
+    // todo: test ints can be operator compared ==,
+
 
     // Beware of arithmetic underflows
     function test_arithmetic_underflows() public {
