@@ -38,7 +38,7 @@ contract Test_Numbers_2 is Koans {
     function test_nil_ints_equal_zero() public {
         int actual;
         Assert.equal(actual, __, "nil values should default to 0");
-        // Reminder: if you get a "TypeError", don't forget to cast your input with int( input );
+        // Reminder: if you get a "TypeError", don't forget to cast your input with int()
     }
 
     // // You can do basic arithmetic operations on ints
@@ -52,11 +52,14 @@ contract Test_Numbers_2 is Koans {
     }
 
     function test_ints_can_be_exponentiated() public {
-
+        int actual = 2 ** 128;
+        Assert.equal(actual, __, "should correctly calculate 2^256");
     }
 
     function test_ints_can_be_modded() public {
-
+        int a = 36532;
+        int actual = a % 3;
+        Assert.equal(actual, __, "should correctly give the remainder of 36532 / 3");
     }
 
     function test_ints_can_be_operated_compared() public {
