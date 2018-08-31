@@ -10,7 +10,7 @@ import "./Koans.sol";
     The point isn't to be redundant
     But to learn Solidity testing
 */  
-contract Test_Assert_1 is Koans{
+contract Test_Assert_1 is Koans {
 
     // You can make the tests fail in specific places in your code
     function test_should_fail_by_default() public {

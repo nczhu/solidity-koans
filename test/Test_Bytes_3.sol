@@ -8,6 +8,8 @@ import "truffle/Assert.sol";
  */
 contract Test_Bytes_3 {
     
+    // TODO: test_everything_converts to bytes (see ruby's objects)
+    
     /* Ethereum's smart contract storage slot are 256 bits each, or 32 bytes.
      * You can save storage space (i.e. gas) by initiating bytes to the minimum needed size.
      */

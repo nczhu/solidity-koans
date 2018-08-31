@@ -7,11 +7,8 @@ So humble yo-self and do some Solidity Koans ;)
 
 ## Directions
 
-Fill in the double underscores: __ to pass each unit test
-
  1. Make sure Ganache is running & double check network configs in truffle.js
- 2. Navigate between the "test" and "contract" directories to complete each level
- 3. "TODO" comments indicate where to make changes to pass the test
+ 2. Fill in the double underscores: __ to pass each unit test
  3. To run tests: `truffle test`
  4. To run a specific test: `truffle test ./testFilePath`
 
@@ -21,20 +18,24 @@ Solution: try typecasting your answer to solve compiler issues
 
 ## Ideas To Implement
 
-Levels: Simple data types
-- [done]learn about the assert stuff
-- [in progress] uint and ints properties, nils, underflow/overflows
-- string/bytes and properties
+----------- Data -----------
+Levels: Elementary data types
+- asserts: DONE
+- numbers: IN PROGRESS
 - addresses
-- free getter functions
+- everything is a byte (primitive)
+- strings
 
-Levels: Complex data types & storage
+
+
+Levels: Complex data types
 - arrays (fixed, dynamic)
 - mappings
 - structs 
 - iteration
 - storage nuance
 
+----------- Smart contracts -----------
 Levels: Function & Solidity variable types
 - variable modifers: public private
 - Visbility modifiers: public, private, external, etc.
@@ -54,13 +55,18 @@ Levels: exception handling
 - asserts
 - ...
 
+----------- Web3, Clients, Patterns ----------- 
+
+Levels: connecting the client
+- free getter functions
+
 Levels: Design Patterns (contract to contract):
 - interfaces
 - librarys
 - scope variable: super
 - factory patterns
 
-Security & Best practices: 
+----------- Security -----------  
 - ownership
 - math
 - overflow, underflow
@@ -69,7 +75,7 @@ Security & Best practices:
 - delegatecall: scope
 - storage hacks
 
-Machine code: 
+----------- Machine code ----------- 
 - bytecode analysis
 
 ## Contributing

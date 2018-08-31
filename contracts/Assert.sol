@@ -53,7 +53,6 @@ library Assert {
 
     byte constant MINUS = byte('-');
 
-
     /*
         Event: TestEvent
         Fired when an assertion is made.
@@ -62,7 +61,7 @@ library Assert {
             message (string) - A message to display if the assertion does not hold.
     */
     event TestEvent(bool indexed result, string message);
-
+    
     // ************************************** general **************************************
 
     /*
@@ -538,7 +537,6 @@ library Assert {
     }
 
     // ************************************** int **************************************
-
     /*
         Function: equal(int)
         Assert that two (256 bit) signed integers are equal.
