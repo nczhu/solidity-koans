@@ -26,8 +26,12 @@ contract Test_Numbers_2 is Koans {
     }
 
     // Save gas by using smaller variables that can share the same storage slot
-    // you can also modify storage size, but shrinking storage might lose data
-    // function  
+    // Warning: shrinking storage will corrupt data
+    function test_shrink_storage_corrupts_data() public {
+        uint original = MAX_UINT;
+        uint converted = uint(uint16(converted));
+        Assert.isBelow(__, __, "should not be equal after size conversion");
+    }
 
     // In Solidity, there's no "nil" or "null" or "undefined" default value
     // Uninitiated values are set to 0 by default
