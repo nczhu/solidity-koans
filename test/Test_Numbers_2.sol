@@ -43,15 +43,12 @@ contract Test_Numbers_2 is Koans {
 
     // // You can do basic arithmetic operations on ints
     function test_ints_can_be_added_and_subtracted() public {
-        
-        // TODO: change the values of "a" and "b" to pass the tests
-        // add, subtract, divide, mod, **
         int a = 5;
         int b = -32;
-        int expected_sum = 3;
-        int expected_diff = -1;
-        Assert.equal(expected_sum, (a+b), "should correctly sum a + b");
-        Assert.equal(expected_diff, (a-b), "should correctly subtract a + b");
+        int sum = a + b;
+        int difference = a - b;
+        Assert.equal(sum, __, "should correctly sum a + b");
+        Assert.equal(difference, __, "should correctly subtract a - b");
     }
 
     function test_ints_can_be_exponentiated() public {
