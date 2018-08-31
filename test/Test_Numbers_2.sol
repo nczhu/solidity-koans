@@ -29,19 +29,17 @@ contract Test_Numbers_2 is Koans {
     // Warning: shrinking storage will corrupt data
     function test_shrink_storage_corrupts_data() public {
         uint original = MAX_UINT;
-        uint converted = uint(uint16(converted));
+        uint converted = uint(uint16(original));
         Assert.isBelow(__, __, "should not be equal after size conversion");
     }
 
     // In Solidity, there's no "nil" or "null" or "undefined" default value
-    // Uninitiated values are set to 0 by default
-    // function test_nil_ints_equal_zero() public {
-    //     int actual;
-
-    //     // TODO: fix this expected value
-    //     int expected = 1;
-    //     Assert.equal(expected, actual, "nil values should default to 0");  
-    // }
+    // Uninitiated values are set to the value 0 by default
+    function test_nil_ints_equal_zero() public {
+        int actual;
+        Assert.equal(actual, __, "nil values should default to 0");
+        // Reminder: if you get a "TypeError", don't forget to cast your input with int( input );
+    }
 
     // // You can do bit operation on ints
     // function test_bitwise_operator_and() public {
