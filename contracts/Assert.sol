@@ -61,7 +61,7 @@ library Assert {
             message (string) - A message to display if the assertion does not hold.
     */
     event TestEvent(bool indexed result, string message);
-    
+
     // ************************************** general **************************************
 
     /*
@@ -482,6 +482,16 @@ library Assert {
     }
 
     /*
+        Author: @nczhu
+        Function: isBelow(uint a, uint b) for Koans
+        Autofail the assertion and log the error message
+    */
+    function isBelow(bytes1 a, bytes1 b, string message) public {
+        a = b; //aribtrary warning supression
+        _report(false, message);
+    }
+
+    /*
         Function: isAtMost(uint)
         Assert that the uint 'A' is lesser than or equal to the uint 'B'.
         : A <= B
@@ -796,13 +806,13 @@ library Assert {
         Returns:
             result (bool) - The result.
     */
-    function lengthNotEqual(uint[] arr, uint length, string message) public returns (bool result) {
-        uint arrLength = arr.length;
-        if (arrLength != arr.length)
-            _report(result, "");
-        else
-            _report(result, _appendTagged(_tag(arrLength, "Tested"), _tag(length, "Against"), message));
-    }
+    // function lengthNotEqual(uint[] arr, uint length, string message) public returns (bool result) {
+    //     uint arrLength = arr.length;
+    //     if (arrLength != arr.length)
+    //         _report(result, "");
+    //     else
+    //         _report(result, _appendTagged(_tag(arrLength, "Tested"), _tag(length, "Against"), message));
+    // }
 
     // ************************************** int[] **************************************
 
@@ -889,13 +899,13 @@ library Assert {
         Returns:
             result (bool) - The result.
     */
-    function lengthNotEqual(int[] arr, uint length, string message) public returns (bool result) {
-        uint arrLength = arr.length;
-        if (arrLength != arr.length)
-            _report(result, "");
-        else
-            _report(result, _appendTagged(_tag(arrLength, "Tested"), _tag(length, "Against"), message));
-    }
+    // function lengthNotEqual(int[] arr, uint length, string message) public returns (bool result) {
+    //     uint arrLength = arr.length;
+    //     if (arrLength != arr.length)
+    //         _report(result, "");
+    //     else
+    //         _report(result, _appendTagged(_tag(arrLength, "Tested"), _tag(length, "Against"), message));
+    // }
 
     // ************************************** address[] **************************************
 
@@ -982,13 +992,13 @@ library Assert {
         Returns:
             result (bool) - The result.
     */
-    function lengthNotEqual(address[] arr, uint length, string message) public returns (bool result) {
-        uint arrLength = arr.length;
-        if (arrLength != arr.length)
-            _report(result, "");
-        else
-            _report(result, _appendTagged(_tag(arrLength, "Tested"), _tag(length, "Against"), message));
-    }
+    // function lengthNotEqual(address[] arr, uint length, string message) public returns (bool result) {
+    //     uint arrLength = arr.length;
+    //     if (arrLength != arr.length)
+    //         _report(result, "");
+    //     else
+    //         _report(result, _appendTagged(_tag(arrLength, "Tested"), _tag(length, "Against"), message));
+    // }
 
     // ************************************** bytes32[] **************************************
 
@@ -1075,13 +1085,13 @@ library Assert {
         Returns:
             result (bool) - The result.
     */
-    function lengthNotEqual(bytes32[] arr, uint length, string message) public returns (bool result) {
-        uint arrLength = arr.length;
-        if (arrLength != arr.length)
-            _report(result, "");
-        else
-            _report(result, _appendTagged(_tag(arrLength, "Tested"), _tag(length, "Against"), message));
-    }
+    // function lengthNotEqual(bytes32[] arr, uint length, string message) public returns (bool result) {
+    //     uint arrLength = arr.length;
+    //     if (arrLength != arr.length)
+    //         _report(result, "");
+    //     else
+    //         _report(result, _appendTagged(_tag(arrLength, "Tested"), _tag(length, "Against"), message));
+    // }
 
     // ************************************** balances **************************************
 

@@ -3,6 +3,14 @@
 
 // equal (actual, expected, ...)
 //*** https://github.com/trufflesuite/truffle/blob/master/packages/truffle-core/lib/testing/Assert.sol
+function isTrue(bytes1 b, string message) public {
+function isFalse(bytes1 b, string message) public {
+function equal(bool a, bytes1 b, string message) public {
+function equal(int a, bytes1 b, string message) public {
+function notEqual(int a, bytes1 b, string message) public {
+function isBelow(bytes1 a, bytes1 b, string message) public {
+
+
 Function: fail()
 Function: equal(string)
 Function: notEqual(string)
@@ -39,19 +47,19 @@ Function: isNotZero(int)
 Function: equal(uint[])
 Function: notEqual(uint[])
 Function: lengthEqual(uint[])
-Function: lengthNotEqual(uint[])
+// Function: lengthNotEqual(uint[])
 Function: equal(int[])
 Function: notEqual(int[])
 Function: lengthEqual(int[])
-Function: lengthNotEqual(int[])
+// Function: lengthNotEqual(int[])
 Function: equal(address[])
 Function: notEqual(address[])
 Function: lengthEqual(address[])
-Function: lengthNotEqual(address[])
+// Function: lengthNotEqual(address[])
 Function: equal(bytes32[])
 Function: notEqual(bytes32[])
 Function: lengthEqual(bytes32[])
-Function: lengthNotEqual(bytes32[])
+// Function: lengthNotEqual(bytes32[])
 Function: balanceEqual
 Function: balanceNotEqual
 Function: balanceIsZero
