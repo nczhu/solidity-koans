@@ -61,15 +61,7 @@ library Assert {
             message (string) - A message to display if the assertion does not hold.
     */
     event TestEvent(bool indexed result, string message);
-
-
-    // ************************************** koans (custom) **************************************
-    /*
-        Author: @nczhu
-        Function: 
-        Returns: nothing
-    */
-
+    
     // ************************************** general **************************************
 
     /*

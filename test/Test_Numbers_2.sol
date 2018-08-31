@@ -10,7 +10,7 @@ import "./Koans.sol";
 */
 contract Test_Numbers_2 is Koans {
 
-    function test_solidity_supports_ints_and_uints() public {
+    function test_you_can_use_ints_and_uints() public {
         int expected_int = -10;
         uint expected_uint = 10;
         Assert.equal(expected_int, int(__), "should recognize int numbers");
@@ -18,19 +18,16 @@ contract Test_Numbers_2 is Koans {
     }
 
     // Ethereum's smart contract storage slots are 256 bits each, or 32 bytes
-    // Storing things to the blockhain costs money (ethers/gas)
-    // You can save money by allocating sizes
-    // function test_you_can_specify_storage_size() public {
-    //     uint8 eight_bits;
-    //     uint16 sixteen_bits;
-        
-    //     // TODO: set max_bits to the largest possible uint that can be stored in 256 bits
-    //     uint256 max_bits = 0; 
-    //     uint max_default_bits = max_bits; //uint defaults to uint256
-    //     Assert.isAtLeast(max_default_bits, 115792089237316195423570985008687907853269984665640564039457584007913129639934, "the default int value should have the largest storage space");
-    // }
+    function test_int_defaults_to_32_bytes() public {
+        int size_of_int = getIntSize(int(0)); 
+        int size_of_int256 = getIntSize(int256(0));
+        Assert.equal(size_of_int, int(__), "should equal 32 bytes");
+        Assert.equal(size_of_int256, int(__), "should equal 32 bytes");
+    }
 
-    // you can modify storage size, but shrinking storage might lose data
+    // Save gas by using smaller variables that can share the same storage slot
+    // you can also modify storage size, but shrinking storage might lose data
+    // function  
 
     // In Solidity, there's no "nil" or "null" or "undefined" default value
     // Uninitiated values are set to 0 by default
