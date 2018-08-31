@@ -41,57 +41,32 @@ contract Test_Numbers_2 is Koans {
         // Reminder: if you get a "TypeError", don't forget to cast your input with int( input );
     }
 
-    // // You can do bit operation on ints
-    // function test_bitwise_operator_and() public {
-    //     uint integer = 42;          //or 101010 bitwise
-    //     uint mask = 56;             //or 111000 bitwise
-    //     uint actual = integer & mask; //or 101000 bitwise
-
-    //     // TODO: give the expected uint value of the bitwise
-    //     uint expected = 0;     
-    //     Assert.equal(expected, actual, "should equal bitwise (integer AND mask)");
-    // }
-
-    // function test_bitwise_operator_xor() public {
-    //     uint integer = 42;          //or 101010 bitwise
-    //     uint mask = 56;             //or 111000 bitwise
-    //     uint actual = integer ^ mask; //or 010010 bitwise
-
-    //     // TODO: give the expected uint value of the bitwise
-    //     uint expected = 0;     
-    //     Assert.equal(expected, actual, "should equal bitwise (integer XOR mask)");
-    // }
-
-    // // You can shift binary values
-    // function test_left_shift_operand() public {
-    //     uint a = 555555;
-    //     uint b = 5;
-
-    //     // TODO: Change n to represent the correct shift base value
-    //     uint n = 3;
-    //     uint expected = a<<b;
-    //     uint actual = a * n**b;     //** is exponentiation
-    //     Assert.equal(expected, actual, "should correctly shift binary left");
-    // }
-
-    // // refactor: test ints can be added and subtracted
     // // You can do basic arithmetic operations on ints
-    // function test_ints_can_be_mathed() public {
+    function test_ints_can_be_added_and_subtracted() public {
         
-    //     // TODO: change the values of "a" and "b" to pass the tests
-    //     // add, subtract, divide, mod, **
-    //     int a = 5;
-    //     int b = -32;
-    //     int expected_sum = 3;
-    //     int expected_diff = -1;
-    //     Assert.equal(expected_sum, (a+b), "should correctly sum a + b");
-    //     Assert.equal(expected_diff, (a-b), "should correctly subtract a + b");
-    // }
+        // TODO: change the values of "a" and "b" to pass the tests
+        // add, subtract, divide, mod, **
+        int a = 5;
+        int b = -32;
+        int expected_sum = 3;
+        int expected_diff = -1;
+        Assert.equal(expected_sum, (a+b), "should correctly sum a + b");
+        Assert.equal(expected_diff, (a-b), "should correctly subtract a + b");
+    }
 
-    // // todo: test ints can be operator compared ==,
+    function test_ints_can_be_exponentiated() public {
 
+    }
 
-    // // Beware of arithmetic underflows
+    function test_ints_can_be_modded() public {
+
+    }
+
+    function test_ints_can_be_operated_compared() public {
+
+    }
+
+    // Beware of arithmetic underflows
     // function test_arithmetic_underflows() public {
     //     uint min = 0;
     //     uint result = min - 1;

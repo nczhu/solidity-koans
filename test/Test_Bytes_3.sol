@@ -29,6 +29,41 @@ contract Test_Bytes_3 {
         Assert.isNotZero(nil_bytes, "uninitialized bytes should default to 0 value");
     }
 
+
+    // // You can do bit operation on ints
+    // function test_bitwise_operator_and() public {
+    //     uint integer = 42;          //or 101010 bitwise
+    //     uint mask = 56;             //or 111000 bitwise
+    //     uint actual = integer & mask; //or 101000 bitwise
+
+    //     // TODO: give the expected uint value of the bitwise
+    //     uint expected = 0;     
+    //     Assert.equal(expected, actual, "should equal bitwise (integer AND mask)");
+    // }
+
+    // function test_bitwise_operator_xor() public {
+    //     uint integer = 42;          //or 101010 bitwise
+    //     uint mask = 56;             //or 111000 bitwise
+    //     uint actual = integer ^ mask; //or 010010 bitwise
+
+    //     // TODO: give the expected uint value of the bitwise
+    //     uint expected = 0;     
+    //     Assert.equal(expected, actual, "should equal bitwise (integer XOR mask)");
+    // }
+
+    // // You can shift binary values
+    // function test_left_shift_operand() public {
+    //     uint a = 555555;
+    //     uint b = 5;
+
+    //     // TODO: Change n to represent the correct shift base value
+    //     uint n = 3;
+    //     uint expected = a<<b;
+    //     uint actual = a * n**b;     //** is exponentiation
+    //     Assert.equal(expected, actual, "should correctly shift binary left");
+    // }
+
+
     function test_bytes_are_bitwise() public {
         bytes2 data = 0xffff;
         bytes2 mask = 0xf0f0;
