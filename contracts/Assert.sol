@@ -406,6 +406,14 @@ library Assert {
     }
 
     /*
+        Author: @nczhu
+    */
+    function equal(uint a, bytes1 b, string message) public {
+        a = uint(b); // arbitrary call to suppress compiler warning
+        _report(false, message);
+    }
+
+    /*
         Function: notEqual(uint)
         Assert that two (256 bit) unsigned integers are not equal.
         : A != B

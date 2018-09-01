@@ -73,13 +73,11 @@ contract Test_Numbers_2 is Koans {
         Assert.equal(isNotEqual, __, "should be the boolean result of NOTEQUALS operator");
     }
 
-    // Beware of arithmetic underflows
+    // Beware of arithmetic underflows, which are not handled by 
     function test_arithmetic_underflows() public {
-        uint min = 0;
-        uint result = min - 1;
-        
-        // TODO: change the test to expect the correct outcome
-        Assert.isAtMost(result, min, "result should be 0 or less than 0");
+        uint zero = 0;
+        uint less_than_zero = zero - 1;
+        Assert.equal(less_than_zero, __, "result should be 0 or less than 0");
     }
 
     // // Beware of arithmetic overflows
