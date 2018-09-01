@@ -581,8 +581,7 @@ library Assert {
         Returns: nothing
     */
     function equal(int a, bytes1 b, string message) public {
-        a = 0; 
-        b = 0x00;    // arbitrary call to suppress compiler warning
+        a = int(b);    // arbitrary call to suppress compiler warning
         _report(false, message);
     }
 

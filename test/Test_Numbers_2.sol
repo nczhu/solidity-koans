@@ -77,17 +77,15 @@ contract Test_Numbers_2 is Koans {
     function test_arithmetic_underflows() public {
         uint zero = 0;
         uint less_than_zero = zero - 1;
-        Assert.equal(less_than_zero, __, "result should be 0 or less than 0");
+        Assert.equal(less_than_zero, __, "result should be underflowed");
     }
 
     // // Beware of arithmetic overflows
-    // function test_arithmetic_overflows() public {
-    //     uint max = MAX_UINT;
-    //     uint result = max + 1;
-        
-    //     // TODO: change the test to expect the correct outcome
-    //     Assert.isAtLeast(result, max, "result should be 255 or above 255");
-    // }
+    function test_arithmetic_overflows() public {
+        uint max = MAX_UINT;
+        uint more_than_max = max + 1;
+        Assert.equal(more_than_max, __, "result should be overflowed");
+    }
 
     // Read about the security issues of arithmetic flows here: 
     // https://medium.com/coinmonks/ethernaut-lvl-5-walkthrough-how-to-abuse-arithmetic-underflows-and-overflows-2c614fa86b74
