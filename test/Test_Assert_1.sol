@@ -36,9 +36,7 @@ contract Test_Assert_1 is Koans {
     // But you can only compare apples to apples, so typecast your values to be the same
     function test_ints_are_not_equal() public {
         int actual = -5;
-        int expected = int(__);
-
-        Assert.notEqual(actual, expected, "should NOT be equal");
+        Assert.notEqual(actual, int(__), "should NOT be equal");
     }
 
     // To see currently supported tests, check out https://github.com/trufflesuite/truffle/blob/master/packages/truffle-core/lib/testing/Assert.sol

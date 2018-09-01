@@ -38,10 +38,10 @@ contract Test_Numbers_2 is Koans {
     function test_nil_ints_equal_zero() public {
         int actual;
         Assert.equal(actual, __, "nil values should default to 0");
-        // Reminder: if you get a "TypeError", don't forget to cast your input with int( input );
+        // Reminder: if you get a "TypeError", don't forget to cast your input with int()
     }
 
-    // // You can do basic arithmetic operations on ints
+    // You can do basic arithmetic operations on ints
     function test_ints_can_be_added_and_subtracted() public {
         int a = 5;
         int b = -32;
@@ -52,34 +52,40 @@ contract Test_Numbers_2 is Koans {
     }
 
     function test_ints_can_be_exponentiated() public {
-
+        int actual = 2 ** 128;
+        Assert.equal(actual, __, "should correctly calculate 2^256");
     }
 
     function test_ints_can_be_modded() public {
-
+        int a = 36532;
+        int actual = a % 3;
+        Assert.equal(actual, __, "should correctly give the remainder of 36532 / 3");
     }
 
-    function test_ints_can_be_operated_compared() public {
-
+    function test_ints_can_be_operater_compared() public {
+        bool isEqual = (5 == 6);
+        bool isTrue = (true || false);
+        bool isFalse = (!true);
+        bool isNotEqual = (5 != 5);
+        Assert.equal(isEqual, __, "should be the boolean result of EQUALS operator");
+        Assert.equal(isTrue, __, "should be the boolean result of OR operator");
+        Assert.equal(isFalse, __, "should be the boolean result of ! negation");
+        Assert.equal(isNotEqual, __, "should be the boolean result of NOTEQUALS operator");
     }
 
-    // Beware of arithmetic underflows
-    // function test_arithmetic_underflows() public {
-    //     uint min = 0;
-    //     uint result = min - 1;
-        
-    //     // TODO: change the test to expect the correct outcome
-    //     Assert.isAtMost(result, min, "result should be 0 or less than 0");
-    // }
+    // Beware of arithmetic underflows, which are not handled by 
+    function test_arithmetic_underflows() public {
+        uint zero = 0;
+        uint less_than_zero = zero - 1;
+        Assert.equal(less_than_zero, __, "result should be underflowed");
+    }
 
     // // Beware of arithmetic overflows
-    // function test_arithmetic_overflows() public {
-    //     uint max = MAX_UINT;
-    //     uint result = max + 1;
-        
-    //     // TODO: change the test to expect the correct outcome
-    //     Assert.isAtLeast(result, max, "result should be 255 or above 255");
-    // }
+    function test_arithmetic_overflows() public {
+        uint max = MAX_UINT;
+        uint more_than_max = max + 1;
+        Assert.equal(more_than_max, __, "result should be overflowed");
+    }
 
     // Read about the security issues of arithmetic flows here: 
     // https://medium.com/coinmonks/ethernaut-lvl-5-walkthrough-how-to-abuse-arithmetic-underflows-and-overflows-2c614fa86b74
