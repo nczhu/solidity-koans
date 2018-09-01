@@ -41,7 +41,7 @@ contract Test_Numbers_2 is Koans {
         // Reminder: if you get a "TypeError", don't forget to cast your input with int()
     }
 
-    // // You can do basic arithmetic operations on ints
+    // You can do basic arithmetic operations on ints
     function test_ints_can_be_added_and_subtracted() public {
         int a = 5;
         int b = -32;
@@ -62,18 +62,25 @@ contract Test_Numbers_2 is Koans {
         Assert.equal(actual, __, "should correctly give the remainder of 36532 / 3");
     }
 
-    function test_ints_can_be_operated_compared() public {
-
+    function test_ints_can_be_operater_compared() public {
+        bool isEqual = (5 == 6);
+        bool isTrue = (true || false);
+        bool isFalse = (!true);
+        bool isNotEqual = (5 != 5);
+        Assert.equal(isEqual, __, "should be the boolean result of EQUALS operator");
+        Assert.equal(isTrue, __, "should be the boolean result of OR operator");
+        Assert.equal(isFalse, __, "should be the boolean result of ! negation");
+        Assert.equal(isNotEqual, __, "should be the boolean result of NOTEQUALS operator");
     }
 
     // Beware of arithmetic underflows
-    // function test_arithmetic_underflows() public {
-    //     uint min = 0;
-    //     uint result = min - 1;
+    function test_arithmetic_underflows() public {
+        uint min = 0;
+        uint result = min - 1;
         
-    //     // TODO: change the test to expect the correct outcome
-    //     Assert.isAtMost(result, min, "result should be 0 or less than 0");
-    // }
+        // TODO: change the test to expect the correct outcome
+        Assert.isAtMost(result, min, "result should be 0 or less than 0");
+    }
 
     // // Beware of arithmetic overflows
     // function test_arithmetic_overflows() public {
