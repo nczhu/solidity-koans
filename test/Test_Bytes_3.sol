@@ -1,97 +1,109 @@
 pragma solidity ^0.4.24;
-import "truffle/Assert.sol";
 
+import "../contracts/Assert.sol";
+import "./Koans.sol";
 
-/* In this level we learn to use: 
- * Bytes as a value-type, and 
- * Bytes[] as a fixed and dynamic array
+/* In this level we convert everything to bytes
+ * and user bitwise operations to manipulate them
+ * Hint: use https://codebeautify.org/ to convert things into bytes & bits
  */
-contract Test_Bytes_3 {
-    
-    // TODO: test_everything_converts to bytes (see ruby's objects)
-    
-    /* Ethereum's smart contract storage slot are 256 bits each, or 32 bytes.
-     * You can save storage space (i.e. gas) by initiating bytes to the minimum needed size.
-     */
-    function test_bytes_default_to_32() public {
-        uint large_number = 999999999999999;
-        bytes1 one_byte = bytes1(large_number);     //result: 0xff
-        bytes2 two_bytes = bytes2(large_number);    //result: 0xffff
+contract Test_Bytes_3 is Koans {
+
+    function test_ints_addrs_convert_to_bytes() public {
+        int integer = 123456789;
+        address addr = 0x14723a09acff6d2a60dcdf7aa4aff308fddc160c; // more on addresses later
+        Assert.equal(bytes32(integer), __, "should convert integer to bytes32");
+        Assert.equal(bytes32(addr), __, "should convert bytes20 bytes16");
+    }
+
+    // // Ethereum's smart contract storage slots are 256 bits each, or 32 bytes
+    // // You can declare bytes of sizes: bytes1, bytes2, bytes32 (but NOT bytes)
+    // function test_nil_bytes_equal_zero() public {
+    //     // bytes32 nil_bytes; 
+
+    //     // // TODO: change the test assumption to what you expect uninitialized bytes should equal
+    //     // Assert.isNotZero(nil_bytes, "uninitialized bytes should default to 0 value");
+    // }
+
+
+    // function test_bytes_is_not_equal_to_bytes32() public {
+    //     // uint large_number = 999999999999999;
+    //     // bytes1 one_byte = bytes1(large_number);     //result: 0xff
+    //     // bytes2 two_bytes = bytes2(large_number);    //result: 0xffff
         
-        // TODO: change the test's input parameters so it passes
-        Assert.isBelow(uint(two_bytes), uint(one_byte), "bytes2 should store more data than bytes1");
-    }
+    //     // // TODO: change the test's input parameters so it passes
+    //     // Assert.isBelow(uint(two_bytes), uint(one_byte), "bytes2 should store more data than bytes1");
+    // }
 
-    function test_nil_bytes_equal_zero() public {
-        bytes32 nil_bytes; 
+    // function test_shrinking_bytes_sizes_corrupts_data() public {
 
-        // TODO: change the test assumption to what you expect uninitialized bytes should equal
-        Assert.isNotZero(nil_bytes, "uninitialized bytes should default to 0 value");
-    }
+    // }
 
-
-    // // You can do bit operation on ints
+    // // // You can do bit operation on ints
     // function test_bitwise_operator_and() public {
-    //     uint integer = 42;          //or 101010 bitwise
-    //     uint mask = 56;             //or 111000 bitwise
-    //     uint actual = integer & mask; //or 101000 bitwise
+    // //     uint integer = 42;          //or 101010 bitwise
+    // //     uint mask = 56;             //or 111000 bitwise
+    // //     uint actual = integer & mask; //or 101000 bitwise
 
-    //     // TODO: give the expected uint value of the bitwise
-    //     uint expected = 0;     
-    //     Assert.equal(expected, actual, "should equal bitwise (integer AND mask)");
+    // //     // TODO: give the expected uint value of the bitwise
+    // //     uint expected = 0;     
+    // //     Assert.equal(expected, actual, "should equal bitwise (integer AND mask)");
     // }
 
     // function test_bitwise_operator_xor() public {
-    //     uint integer = 42;          //or 101010 bitwise
-    //     uint mask = 56;             //or 111000 bitwise
-    //     uint actual = integer ^ mask; //or 010010 bitwise
+    // //     uint integer = 42;          //or 101010 bitwise
+    // //     uint mask = 56;             //or 111000 bitwise
+    // //     uint actual = integer ^ mask; //or 010010 bitwise
 
-    //     // TODO: give the expected uint value of the bitwise
-    //     uint expected = 0;     
-    //     Assert.equal(expected, actual, "should equal bitwise (integer XOR mask)");
+    // //     // TODO: give the expected uint value of the bitwise
+    // //     uint expected = 0;     
+    // //     Assert.equal(expected, actual, "should equal bitwise (integer XOR mask)");
     // }
 
-    // // You can shift binary values
+    // // // You can shift binary values
     // function test_left_shift_operand() public {
-    //     uint a = 555555;
-    //     uint b = 5;
+    // //     uint a = 555555;
+    // //     uint b = 5;
 
-    //     // TODO: Change n to represent the correct shift base value
-    //     uint n = 3;
-    //     uint expected = a<<b;
-    //     uint actual = a * n**b;     //** is exponentiation
-    //     Assert.equal(expected, actual, "should correctly shift binary left");
+    // //     // TODO: Change n to represent the correct shift base value
+    // //     uint n = 3;
+    // //     uint expected = a<<b;
+    // //     uint actual = a * n**b;     //** is exponentiation
+    // //     Assert.equal(expected, actual, "should correctly shift binary left");
     // }
 
+    // function test_right_shift_operand() public {
 
-    function test_bytes_are_bitwise() public {
-        bytes2 data = 0xffff;
-        bytes2 mask = 0xf0f0;
+    // }
 
-        // TODO: fill in the byte value of the "expected_and" and "expected_xor" to pass the test
-        bytes2 expected_and; 
-        bytes2 expected_xor;
+    // function test_bytes_are_bitwise() public {
+    //     // bytes2 data = 0xffff;
+    //     // bytes2 mask = 0xf0f0;
 
-        Assert.equal(expected_and, (data & mask), "should return the AND of data and mask");
-        Assert.equal(expected_xor, (data ^ mask), "should return the XOR of data and mask");
-    }
+    //     // // TODO: fill in the byte value of the "expected_and" and "expected_xor" to pass the test
+    //     // bytes2 expected_and; 
+    //     // bytes2 expected_xor;
 
-    /* "bytes" denote a dynamically sized byte ARRAY, like byte[]
-     */
-    function test_dynamic_byte_arrays() public {
-        // this part needs to be in a contract
+    //     // Assert.equal(expected_and, (data & mask), "should return the AND of data and mask");
+    //     // Assert.equal(expected_xor, (data ^ mask), "should return the XOR of data and mask");
+    // }
 
-    }
+    // /* "bytes" denote a dynamically sized byte ARRAY, like byte[]
+    //  */
+    // function test_can_have_bytes_array_() public {
+    //     // this part needs to be in a contract
 
-    function test_enlarging_byte_arrays() public {
+    // }
+
+    // function test_enlarging_byte_arrays() public {
     
-    }
+    // }
 
-    /* As a rule of thumb, use bytes for arbitrary-length raw byte data 
-     * and string for arbitrary-length string (UTF-8) data. 
-     */
-    function test_dynamic_size_strings() public {
+    // /* As a rule of thumb, use bytes for arbitrary-length raw byte data 
+    //  * and string for arbitrary-length string (UTF-8) data. 
+    //  */
+    // function test_bytes_array_are_similar_to_strings() public {
 
-    }
+    // }
 }
 

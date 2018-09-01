@@ -18,6 +18,7 @@ contract Test_Numbers_2 is Koans {
     }
 
     // Ethereum's smart contract storage slots are 256 bits each, or 32 bytes
+    // You can declare ints of sizes: uint8, uint16... to uint256 (alias uint)
     function test_int_defaults_to_32_bytes() public {
         int size_of_int = getIntSize(int(0)); 
         int size_of_int256 = getIntSize(int256(0));
@@ -27,7 +28,7 @@ contract Test_Numbers_2 is Koans {
 
     // Save gas by using smaller variables that can share the same storage slot
     // Warning: shrinking storage will corrupt data
-    function test_shrink_storage_corrupts_data() public {
+    function test_shrinking_storage_size_corrupts_data() public {
         uint original = MAX_UINT;
         uint converted = uint(uint16(original));
         Assert.isBelow(__, __, "should not be equal after size conversion");
