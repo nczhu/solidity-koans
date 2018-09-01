@@ -172,14 +172,6 @@ library Assert {
     }
 
     /*
-        Author: @nczhu
-    */
-    // function equal(bytes32 a, bytes1 b, string message) public {
-    //     a = bytes32(b);
-    //     _report(false, message);
-    // }
-
-    /*
         Function: notEqual(bytes32)
         Assert that two 'bytes32' are not equal.
         : A != B

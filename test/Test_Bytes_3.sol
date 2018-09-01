@@ -3,9 +3,9 @@ pragma solidity ^0.4.24;
 import "../contracts/Assert.sol";
 import "./Koans.sol";
 
-/* In this level we convert everything to bytes
- * and user bitwise operations to manipulate them
- * Hint: use https://codebeautify.org/ to convert things into bytes & bits
+/* In this level we convert data into bytes
+ * and do bitwise operations
+ * Hint: use https://codebeautify.org/ to do the conversion
  */
 contract Test_Bytes_3 is Koans {
 
@@ -16,15 +16,12 @@ contract Test_Bytes_3 is Koans {
         Assert.equal(bytes32(addr), __, "should convert bytes20 bytes16");
     }
 
-    // // Ethereum's smart contract storage slots are 256 bits each, or 32 bytes
-    // // You can declare bytes of sizes: bytes1, bytes2, bytes32 (but NOT bytes)
-    // function test_nil_bytes_equal_zero() public {
-    //     // bytes32 nil_bytes; 
-
-    //     // // TODO: change the test assumption to what you expect uninitialized bytes should equal
-    //     // Assert.isNotZero(nil_bytes, "uninitialized bytes should default to 0 value");
-    // }
-
+    // You can declare bytes of sizes: bytes1, bytes2, bytes32 (but NOT bytes)
+    function test_be_careful_about_conversions_and_resizing() public {
+        bytes32 a = bytes32(MAX_UINT);
+        bytes3 b = bytes3(MAX_UINT);
+        Assert.isBelow(uint(__), uint(__), "should not be equal after resizing");
+    }
 
     // function test_bytes_is_not_equal_to_bytes32() public {
     //     // uint large_number = 999999999999999;
