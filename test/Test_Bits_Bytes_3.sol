@@ -8,12 +8,11 @@ import "./Koans.sol";
  * Hint: use https://codebeautify.org/ to do the conversion
  */
 contract Test_Bits_Bytes_3 is Koans {
+    bytes hello_world = "hello world";
 
-    function test_some_datatypes_convert_to_bytes() public {
+    function test_integers_convert_to_bytes() public {
         int integer = 123456789;
-        address addr = 0x14723a09acff6d2a60dcdf7aa4aff308fddc160c; // more on addresses later
         Assert.equal(bytes32(integer), __, "should convert integer to bytes32");
-        Assert.equal(bytes32(addr), __, "should convert bytes20 bytes16");
     }
 
     // You can declare bytes of sizes: bytes1, bytes2, bytes32 (but NOT bytes)
@@ -36,8 +35,7 @@ contract Test_Bits_Bytes_3 is Koans {
     // Likewise, you can do bitwise operations on ints
     function test_bitwise_operator_XOR() public {
         uint integer = 42;              // or 101010 bitwise
-        uint mask = 56;                 //or 111000 bitwise
-        uint actual = integer ^ mask;   //or 010010 bitwise
+        uint actual = integer ^ 56;   
         Assert.equal(actual, __, "should equal the bitwise of (integer XOR mask)");
     }
 
@@ -51,39 +49,21 @@ contract Test_Bits_Bytes_3 is Koans {
     // Likewise, you can shift bits with integers
     function test_right_shift_operand() public {
         uint a = 555555;
-        uint b = 5;
-        uint actual = a >> b;
+        uint actual = a >> 5;
         Assert.equal(actual, __, "should correctly shift a right by 5 bits");
     }
 
-    // function test_bytes_are_bitwise() public {
-    //     // bytes2 data = 0xffff;
-    //     // bytes2 mask = 0xf0f0;
+    // "bytes" is a special variable type.
+    // "bytes" is an array of single bytes, similar to "string" and "byte[]"
+    //  bytes hello_world = "hello world";
+    function test_bytes_are_like_strings() public {
+        uint string_length = hello_world.length;
+        bytes1 first_byte = hello_world[0];
+        bytes1 last_byte = hello_world[string_length-1];
+        Assert.equal(string_length, __, "should be the byte length of the hello world string");
+        Assert.equal(first_byte, __, "should be the UTF-8 of the first byte");
+        Assert.equal(last_byte, __, "should be the UTF-8 of the last byte");
+    }
 
-    //     // // TODO: fill in the byte value of the "expected_and" and "expected_xor" to pass the test
-    //     // bytes2 expected_and; 
-    //     // bytes2 expected_xor;
-
-    //     // Assert.equal(expected_and, (data & mask), "should return the AND of data and mask");
-    //     // Assert.equal(expected_xor, (data ^ mask), "should return the XOR of data and mask");
-    // }
-
-    // /* "bytes" denote a dynamically sized byte ARRAY, like byte[]
-    //  */
-    // function test_can_have_bytes_array_() public {
-    //     // this part needs to be in a contract
-
-    // }
-
-    // function test_enlarging_byte_arrays() public {
-    
-    // }
-
-    // /* As a rule of thumb, use bytes for arbitrary-length raw byte data 
-    //  * and string for arbitrary-length string (UTF-8) data. 
-    //  */
-    // function test_bytes_array_are_similar_to_strings() public {
-
-    // }
 }
 

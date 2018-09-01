@@ -12,6 +12,18 @@ import "truffle/Assert.sol";
  */
 contract Test_Arrays_4 {
 
+
+    // // You can have an array of bytes1, to bytes32
+    // function test_can_have_byte_arrays() public {
+    //     // this part needs to be in a contract
+    //     bytes32[] memory dynamic_array;
+    //     bytes32[5] memory fixed_array;
+    // }
+
+    // // function test_enlarging_byte_arrays() public {
+    
+    // // }
+    
     function test_array_initialization() public {
         
     }

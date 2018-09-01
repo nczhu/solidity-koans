@@ -7,13 +7,13 @@ So humble yo-self and do some Solidity Koans ;)
 ## Directions
 
  1. Make sure Ganache is running & double check network configs in truffle.js
- 2. Fill in the double underscores: __ to pass each unit test
+ 2. Fill in the double underscores: __ to pass each unit test. To correctly pass each level, make sure you're solutions fixed all compiler warning as well.
  3. To run tests: `truffle test`
  4. To run a specific test: `truffle test ./testFilePath`
 
 ## Troubleshooting
 Issue: Member "..." not unique after argument-dependent lookup in type(library Assert)
-Solution: try typecasting your answer to solve compiler issues
+Solution: try typecasting your answer to solve compiler issues.
 
 ## Ideas To Implement
 
