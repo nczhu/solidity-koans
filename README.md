@@ -17,29 +17,22 @@ Solution: try typecasting your answer to solve compiler issues.
 
 ## Levels
 
-### Elementary data types
+### Solidity data types
 1. [Asserts](./test/Test_Assert_1.sol)
-2. [Numbers]
-3. Bytes
-- everything is a byte (primitive)
-- strings
+2. [Numbers](./test/Test_Numbers_2.sol)
+3. [Bytes](./test/Test_Numbers_2.sol)
+4. [Arrays](./test/Test_Numbers_2.sol)
+5. Structs - in progress
+6. Mappings - in progress
+7. Iteration
+8. Storage nuance
 
-
-
-Levels: Complex data types
-- arrays (fixed, dynamic)
-- mappings
-- structs 
-- iteration
-- storage nuance
-
------------ Smart contracts -----------
-Levels: Function & Solidity variable types
+### Function types
 - variable modifers: public private
 - Visbility modifiers: public, private, external, etc.
 - Getter modifiers: view, pure, constant
 
-Levels: Handling transactions data (special variables). B9
+### Transactions
 - data
 - msg.sender
 - msg.value
@@ -48,26 +41,24 @@ Levels: Handling transactions data (special variables). B9
 - Transaction nuances: what gets returned, async nature
 - scope variable: this
 
-Levels: exception handling
+### exception handling
 - require
 - asserts
 - ...
 - passing storage arrays rather than memory arrays
 
------------ JS ----------- 
-
-Levels: connecting the client
+### Javascript & client
 - free getter functions
 - handling issues
 - constructing your send / call fns
 
------------ Design Patterns ----------- 
+### Design patterns
 - interfaces
 - librarys
 - scope variable: super
 - factory patterns
 
------------ Security -----------  
+### Security
 - ownership
 - math
 - overflow, underflow
@@ -76,7 +67,7 @@ Levels: connecting the client
 - delegatecall: scope
 - storage hacks
 
------------ Solidity Assembly ----------- 
+### Solidity Assembly
 - bytecode analysis
 - code in assembly (inside smart contracts)
 
