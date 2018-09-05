@@ -1,5 +1,7 @@
 pragma solidity ^0.4.24;
-import "truffle/Assert.sol";
+
+import "../contracts/Assert.sol";
+import "./Koans.sol";
 
 /* One day Chao-chou fell down in the snow, and called out, 
  * “Help me up! Help me up!” 
@@ -8,10 +10,9 @@ import "truffle/Assert.sol";
  * 
  * In this level we learn about arrays
  * It might get tough but the monk reminds you that 
- * you can solve it, all by yourself.
+ * you can solve it all, all by yourself.
  */
 contract Test_Arrays_4 {
-
 
     // // You can have an array of bytes1, to bytes32
     // function test_can_have_byte_arrays() public {
@@ -20,9 +21,8 @@ contract Test_Arrays_4 {
     //     bytes32[5] memory fixed_array;
     // }
 
-    // // function test_enlarging_byte_arrays() public {
-    
-    // // }
+    // function test_enlarging_byte_arrays() public {
+    // }
     
     function test_array_initialization() public {
         
