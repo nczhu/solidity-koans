@@ -20,11 +20,9 @@ contract Test_Arrays_4 is Koans {
     function test_can_use_arrays_in_Solidity() public {
         bytes32[] bytesArray;
         Assert.equal(bytesArray.length, __, "should be an empty bytes array");
-        
         uint[] integers;
         integers.push(12345);
         Assert.equal(integers.length, __, "should be a nonempty array of uints");
-        
     }
 
     // Arrays initialization defaults to storage, not memory
@@ -60,10 +58,16 @@ contract Test_Arrays_4 is Koans {
     // You cannot resize memory arrays, nor fixed arrays
     function test_dynamic_array_resizing() public {
         uint[] storage array; 
-        // array.push();
-        // can do .length resizing
-        // cannot resize memory array
-        // cannot rezize fixed arrays
+         array.push(1);
+        array.push(2);
+        array.push(3);
+        array.push(4);
+        Assert.equal(array.length, __, "should be the correct length");
+        array.length = 2;
+        Assert.equal(array.length, __, "should be the correct length");
+        array.length = 4;
+        Assert.equal(array.length, __, "should be the correct length");
+        Assert.equal(array[3], __, "should be the correct value at index 3");
     }
 
     // You can have a 2D matrix of arrays
