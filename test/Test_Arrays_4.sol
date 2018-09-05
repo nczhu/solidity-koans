@@ -3,46 +3,79 @@ pragma solidity ^0.4.24;
 import "../contracts/Assert.sol";
 import "./Koans.sol";
 
-/* One day Chao-chou fell down in the snow, and called out, 
- * “Help me up! Help me up!” 
- * A monk came and lay down beside him. 
- * Chao-chou got up and went away.
- * 
- * In this level we learn about arrays
- * It might get tough but the monk reminds you that 
- * you can solve it all, all by yourself.
+/* 
+    One day Chao-chou fell down in the snow, and called out, 
+    “Help me up! Help me up!” 
+    A monk came and lay down beside him. 
+    Chao-chou got up and went away.
+  
+    In this level we learn about arrays
+    The monk reminds you that you don't actually need any help to solve this level.
  */
-contract Test_Arrays_4 {
 
-    // // You can have an array of bytes1, to bytes32
-    // function test_can_have_byte_arrays() public {
-    //     // this part needs to be in a contract
-    //     bytes32[] memory dynamic_array;
-    //     bytes32[5] memory fixed_array;
-    // }
+contract Test_Arrays_4 is Koans {
 
-    // function test_enlarging_byte_arrays() public {
-    // }
-    
-    function test_array_initialization() public {
-        
+    // You can create arrays of different data types
+    // You can check the lengths of your arrays
+    function test_can_use_arrays_in_Solidity() public {
+        bytes32[] bytesArray;
+        Assert.equal(bytesArray.length, __, "should be an empty bytes array");
+        uint[] integers;
+        integers.push(12345);
+        Assert.equal(integers.length, __, "should be a nonempty array of uints");
     }
 
-    function test_static_array() public {
+    // Arrays initialization defaults to storage, not memory
+    // Lack of specificity will generate compilation warnings
+    function test_arrays_need_storage_specification() public {
+        uint[] memory memory_array;
+        uint[] storage storage_array;
+        memory_array = storage_array;
+        // storage_array = memory_array is NOT allowed
+        Assert.equal(memory_array, __, "should be the same array");
+    }
+
+    // You can declare an immutable, static array
+    function test_fixed_arrays() public {
+        uint[1] memory array;
+        array[0] = 1;
+        Assert.equal(array[0], __, "should only be able to store 1 uint");
+    }
+
+    // You can declare mutable, dynamic arrays
+    // Dynamic arrays must be initialized as "storage" variables
+    function test_dynamic_arrays() public {
+        uint[] storage array;
+        array.push(1);
+        array.push(2);
+        Assert.equal(array.length, __, "should be the correct length");
+        array.push(3);
+        Assert.equal(array.length, __, "should be the correct length");
+        Assert.equal(array[2], __, "should be the correct value at index 2");
+    }
+
+    // You can resize dynamic storage arrays
+    // You cannot resize memory arrays, nor fixed arrays
+    function test_dynamic_array_resizing() public {
+        uint[] storage array; 
+         array.push(1);
+        array.push(2);
+        array.push(3);
+        array.push(4);
+        Assert.equal(array.length, __, "should be the correct length");
+        array.length = 2;
+        Assert.equal(array.length, __, "should be the correct length");
+        array.length = 4;
+        Assert.equal(array.length, __, "should be the correct length");
+        Assert.equal(array[3], __, "should be the correct value at index 3");
+    }
+
+    // You can have a 2D matrix of arrays
+    function test_array_of_arrays() public {
 
     }
 
-    function test_dynamic_array() public {
-        
-    }
-
-    function test_memory_vs_storage() public {
-
-    }
-
-    function test_resize_array_size() public {
-        // arrays can only be resized in storage, not memory;
-// https://delegatecall.com/questions/workaround-for-return-dynamic-array-from-solidity69924f08-a061-426f-a326-2bed3f566e53
+    function test_out_of_bounds_array() public {
 
     }
 }
