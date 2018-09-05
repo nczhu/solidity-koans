@@ -27,6 +27,7 @@ contract Test_Arrays_4 is Koans {
 
     // Arrays initialization defaults to storage, not memory
     // Lack of specificity will generate compilation warnings
+    // Memory arrays only exist in the scope of the current function
     function test_arrays_need_storage_specification() public {
         uint[] memory memory_array;
         uint[] storage storage_array;
@@ -37,7 +38,7 @@ contract Test_Arrays_4 is Koans {
 
     // You can declare an immutable, static array
     function test_fixed_arrays() public {
-        uint[1] memory array;
+        uint[1] storage array;
         array[0] = 1;
         Assert.equal(array[0], __, "should only be able to store 1 uint");
     }
@@ -57,22 +58,28 @@ contract Test_Arrays_4 is Koans {
     // You can resize dynamic storage arrays
     // You cannot resize memory arrays, nor fixed arrays
     function test_dynamic_array_resizing() public {
-        uint[] storage array; 
-         array.push(1);
-        array.push(2);
-        array.push(3);
-        array.push(4);
+        bool[] storage array; 
+        array.push(true);
+        array.push(false);
+        array.push(true);
         Assert.equal(array.length, __, "should be the correct length");
+        Assert.equal(array[2], __, "should be the correct value at index 2");
         array.length = 2;
         Assert.equal(array.length, __, "should be the correct length");
-        array.length = 4;
+        array.length = 3;
         Assert.equal(array.length, __, "should be the correct length");
-        Assert.equal(array[3], __, "should be the correct value at index 3");
+        Assert.equal(array[2], __, "should be the correct value at index 2");
     }
 
-    // You can have a 2D matrix of arrays
+    // You can have array matrices
+    // Notice the [row][col] order is reversed during instantiation vs retrieval
     function test_array_of_arrays() public {
-
+        uint[2][] storage matrix;
+        matrix.push([1, 2]);
+        matrix.push([3, 4]);
+        matrix.push([5, 6]);
+        Assert.equal(matrix[0][1], __, "should be the correct value");
+        Assert.equal(matrix[1][0], __, "should be the correct value");
     }
 
     function test_out_of_bounds_array() public {
