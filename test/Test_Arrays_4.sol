@@ -17,6 +17,7 @@ contract Test_Arrays_4 is Koans {
 
     // You can create arrays of different data types
     // You can check the lengths of your arrays
+    // Notice the lack of storage specificity generates compiler warnings
     function test_can_use_arrays_in_Solidity() public {
         bytes32[] bytesArray;
         Assert.equal(bytesArray.length, __, "should be an empty bytes array");
@@ -26,55 +27,54 @@ contract Test_Arrays_4 is Koans {
     }
 
     // Arrays initialization defaults to storage, not memory
-    // Lack of specificity will generate compilation warnings
     // Memory arrays only exist in the scope of the current function
+    uint[] storage_array;
     function test_arrays_need_storage_specification() public {
         uint[] memory memory_array;
-        uint[] storage storage_array;
         memory_array = storage_array;
         // Notice: storage_array = memory_array is NOT allowed
         Assert.equal(memory_array, __, "should be the same array");
     }
 
     // You can declare an immutable, static array
+    uint[1] fixed_array;
     function test_fixed_arrays() public {
-        uint[1] storage array;
-        array[0] = 1;
-        Assert.equal(array[0], __, "should only be able to store 1 uint");
+        fixed_array[0] = 1;
+        Assert.equal(fixed_array[0], __, "should only be able to store 1 uint");
     }
 
     // You can declare mutable, dynamic arrays
     // Dynamic arrays must be initialized as "storage" variables
+    uint[] dynamic_array;
     function test_dynamic_arrays() public {
-        uint[] storage array;
-        array.push(1);
-        array.push(2);
-        Assert.equal(array.length, __, "should be the correct length");
-        array.push(3);
-        Assert.equal(array.length, __, "should be the correct length");
-        Assert.equal(array[2], __, "should be the correct value at index 2");
+        dynamic_array.push(1);
+        dynamic_array.push(2);
+        Assert.equal(dynamic_array.length, __, "should be the correct length");
+        dynamic_array.push(3);
+        Assert.equal(dynamic_array.length, __, "should be the correct length");
+        Assert.equal(dynamic_array[2], __, "should be the correct value at index 2");
     }
 
     // You can resize dynamic storage arrays
     // You cannot resize memory arrays, nor fixed arrays
+    bool[] resizable_array; 
     function test_dynamic_array_resizing() public {
-        bool[] storage array; 
-        array.push(true);
-        array.push(false);
-        array.push(true);
-        Assert.equal(array.length, __, "should be the correct length");
-        Assert.equal(array[2], __, "should be the correct value at index 2");
-        array.length = 2;
-        Assert.equal(array.length, __, "should be the correct length");
-        array.length = 3;
-        Assert.equal(array.length, __, "should be the correct length");
-        Assert.equal(array[2], __, "should be the correct value at index 2");
+        resizable_array.push(true);
+        resizable_array.push(false);
+        resizable_array.push(true);
+        Assert.equal(resizable_array.length, __, "should be the correct length");
+        Assert.equal(resizable_array[2], __, "should be the correct value at index 2");
+        resizable_array.length = 2;
+        Assert.equal(resizable_array.length, __, "should be the correct length");
+        resizable_array.length = 3;
+        Assert.equal(resizable_array.length, __, "should be the correct length");
+        Assert.equal(resizable_array[2], __, "should be the correct value at index 2");
     }
 
     // You can have array matrices
     // Notice the [row][col] order is reversed during instantiation vs retrieval
+    uint[2][] matrix;
     function test_array_of_arrays() public {
-        uint[2][] storage matrix;
         matrix.push([1, 2]);
         matrix.push([3, 4]);
         matrix.push([5, 6]);
@@ -83,9 +83,9 @@ contract Test_Arrays_4 is Koans {
     }
 
     // Always be careful when modifying array sizes
+    uint[] overflow_array;
     function test_index_overflows() public {
-        uint[] storage array;
-        array.length--;
-        Assert.equal(array.length, __, "should be an unintended length");
+        overflow_array.length--;
+        Assert.equal(overflow_array.length, __, "should be an unintended length");
     }
 }
