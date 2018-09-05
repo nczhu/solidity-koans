@@ -10,23 +10,22 @@ So humble yo-self and do some Solidity Koans ;)
  2. To run tests: `truffle test`
  3. To run a specific test: `truffle test ./testFilePath`
  4. To pass a level, make sure to: 
- ⋅⋅* fill in all underscores `__`
- ⋅⋅* fix all compiler warnings and errors
+   * fill in all underscores `__`
+   * fix all compiler warnings and errors
 
-## Troubleshooting
+### Troubleshooting
 - `Member "..." not unique after argument-dependent lookup in type(library Assert)`. *Solution*: try typecasting your answer to solve compiler issues.
 
 ## Levels
 
-### Solidity data types
+### Standard data types
 1. [Asserts](./test/Test_Assert_1.sol)
 2. [Numbers](./test/Test_Numbers_2.sol)
-3. [Bytes](./test/Test_Numbers_2.sol)
-4. [Arrays](./test/Test_Numbers_2.sol)
-5. [Structs](./test/Test_Structs_5.sol)
-6. [Maps & Iteration](./test/Test_Mappings_6.sol)
-7. Iteration - in progress
-8. Storage nuance
+3. [Bytes](./test/Test_Bits_Bytes_3.sol)
+4. [Arrays](./test/Test_Arrays_4.sol)
+5. [Mappings](./test/Test_Mappings_5.sol)
+6. [Structs](./test/Test_Structs_6.sol)
+7. [Getters](./test/Test_Getters_7.sol)
 
 ### Function types
 - variable modifers: public private
