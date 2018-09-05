@@ -32,7 +32,7 @@ contract Test_Arrays_4 is Koans {
         uint[] memory memory_array;
         uint[] storage storage_array;
         memory_array = storage_array;
-        // storage_array = memory_array is NOT allowed
+        // Notice: storage_array = memory_array is NOT allowed
         Assert.equal(memory_array, __, "should be the same array");
     }
 
@@ -78,11 +78,11 @@ contract Test_Arrays_4 is Koans {
         matrix.push([1, 2]);
         matrix.push([3, 4]);
         matrix.push([5, 6]);
-        Assert.equal(matrix[0][1], __, "should be the correct value");
-        Assert.equal(matrix[1][0], __, "should be the correct value");
+        Assert.equal(matrix[0][1], __, "should be the correct uint value");
+        Assert.equal(matrix[1][0], __, "should be the correct uint value");
     }
 
     function test_out_of_bounds_array() public {
-
+        
     }
 }

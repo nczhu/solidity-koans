@@ -758,9 +758,9 @@ library Assert {
 
     /*
         Author: @nczhu
-        TODO: need to suppress the warnings
     */
     function equal(uint[] arrA, bytes1 koan, string message) public {
+        koan = bytes1(arrA.length); //supresses warnings
         _report(false, message);
     }
     /*
