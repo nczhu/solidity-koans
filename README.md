@@ -15,7 +15,7 @@ So humble yo-self and do some Solidity Koans ;)
 Issue: Member "..." not unique after argument-dependent lookup in type(library Assert)
 Solution: try typecasting your answer to solve compiler issues.
 
-## Ideas To Implement
+## Levels - in progress
 
 ----------- Data -----------
 Levels: Elementary data types
@@ -54,12 +54,14 @@ Levels: exception handling
 - asserts
 - ...
 
------------ Web3, Clients, Patterns ----------- 
+----------- JS ----------- 
 
 Levels: connecting the client
 - free getter functions
+- handling issues
+- constructing your send / call fns
 
-Levels: Design Patterns (contract to contract):
+----------- Design Patterns ----------- 
 - interfaces
 - librarys
 - scope variable: super
@@ -74,8 +76,9 @@ Levels: Design Patterns (contract to contract):
 - delegatecall: scope
 - storage hacks
 
------------ Machine code ----------- 
+----------- Solidity Assembly ----------- 
 - bytecode analysis
+- code in assembly (inside smart contracts)
 
 ## Contributing
 
@@ -89,7 +92,6 @@ See full list of outstanding [issues](https://github.com/nczhu/soliditykoans/iss
 
 ## Design Decisions
 - Rewrote Assert.sol to accommodate for additional data types. Modifications are signed inline with @nczhu
-- Rewrote Assert.sol to understand __ syntax in Koans
 
 ## License
 MIT License
