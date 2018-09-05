@@ -7,9 +7,11 @@ So humble yo-self and do some Solidity Koans ;)
 ## Directions
 
  1. Make sure Ganache is running & double check network configs in truffle.js
- 2. Fill in the double underscores: `__` to pass each unit test
- 3. To run tests: `truffle test`
- 4. To run a specific test: `truffle test ./testFilePath`
+ 2. To run tests: `truffle test`
+ 3. To run a specific test: `truffle test ./testFilePath`
+ 4. To pass a level, make sure to: 
+ ⋅⋅* fill in all underscores `__`
+ ⋅⋅* fix all compiler warnings and errors
 
 ## Troubleshooting
 - `Member "..." not unique after argument-dependent lookup in type(library Assert)`. *Solution*: try typecasting your answer to solve compiler issues.
@@ -21,9 +23,9 @@ So humble yo-self and do some Solidity Koans ;)
 2. [Numbers](./test/Test_Numbers_2.sol)
 3. [Bytes](./test/Test_Numbers_2.sol)
 4. [Arrays](./test/Test_Numbers_2.sol)
-5. Structs - in progress
-6. Mappings - in progress
-7. Iteration
+5. [Structs](./test/Test_Structs_5.sol)
+6. [Maps & Iteration](./test/Test_Mappings_6.sol)
+7. Iteration - in progress
 8. Storage nuance
 
 ### Function types
