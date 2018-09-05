@@ -17,23 +17,40 @@ contract Test_Arrays_4 is Koans {
 
     // You can create arrays of different data types
     // You can check the lengths of your arrays
-    function test_array_initialization() public {
-        uint[] integers;
+    function test_can_use_arrays_in_Solidity() public {
         bytes32[] bytesArray;
-        Assert.equal(integers.length, __, "should be an empty uints array");
         Assert.equal(bytesArray.length, __, "should be an empty bytes array");
+        
+        uint[] integers;
+        integers.push(12345);
+        Assert.equal(integers.length, __, "should be a nonempty array of uints");
+        
     }
 
-    function test_arrays_index_at_zero() public {
-
-    }
-
-    // The previous test generated compilation warnings
-    // This one doesn't
+    // Arrays initialization defaults to storage, not memory
+    // Lack of specificity will generate compilation warnings
     function test_arrays_need_storage_specification() public {
+        uint[] memory memory_array;
+        uint[] storage storage_array;
+        memory_array = storage_array;
+        // storage_array = memory_array is NOT allowed
+        Assert.equal(memory_array, __, "should be the same array");
+    }
+
+        // function test_can_resize_arrays() public {
+        // arrays can only be resized in storage, not memory;
+        // https://delegatecall.com/questions/workaround-for-return-dynamic-array-from-solidity69924f08-a061-426f-a326-2bed3f566e53
+
+    // }
+
+    // You can truncate arrays, or lengthen arrays
+    function test_can_resize_arrays() public {
 
     }
 
+    function test_memory_vs_storage() public {
+
+    }
 
     function test_static_array() public {
 
@@ -43,17 +60,12 @@ contract Test_Arrays_4 is Koans {
         
     }
 
-    function test_memory_vs_storage() public {
+    function test_out_of_bounds_array() public {
 
     }
 
-    function test_can_resize_arrays() public {
-        // arrays can only be resized in storage, not memory;
-// https://delegatecall.com/questions/workaround-for-return-dynamic-array-from-solidity69924f08-a061-426f-a326-2bed3f566e53
-
-    }
-
-    function test_2d_arrays() public {
+    // You can have a 2D matrix of arrays
+    function test_array_of_arrays() public {
 
     }
 }
