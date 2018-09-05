@@ -82,7 +82,10 @@ contract Test_Arrays_4 is Koans {
         Assert.equal(matrix[1][0], __, "should be the correct uint value");
     }
 
-    function test_out_of_bounds_array() public {
-        
+    // Always be careful when modifying array sizes
+    function test_index_overflows() public {
+        uint[] storage array;
+        array.length--;
+        Assert.equal(array.length, __, "should be an unintended length");
     }
 }
