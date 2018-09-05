@@ -7,6 +7,7 @@ function isTrue(bytes1 b, string message) public {
 function isFalse(bytes1 b, string message) public {
 function equal(bool a, bytes1 b, string message) public {
 function equal(int a, bytes1 b, string message) public {
+function equal(uint a, bytes1 b, string message) public {
 function notEqual(int a, bytes1 b, string message) public {
 function isBelow(bytes1 a, bytes1 b, string message) public {
 
