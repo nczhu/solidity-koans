@@ -15,13 +15,12 @@ So humble yo-self and do some Solidity Koans ;)
 Issue: Member "..." not unique after argument-dependent lookup in type(library Assert)
 Solution: try typecasting your answer to solve compiler issues.
 
-## Levels - in progress
+## Levels
 
------------ Data -----------
-Levels: Elementary data types
-- asserts: DONE
-- numbers: IN PROGRESS
-- addresses
+### Elementary data types
+1. [Asserts](./test/Test_Assert_1.sol)
+2. [Numbers]
+3. Bytes
 - everything is a byte (primitive)
 - strings
 
