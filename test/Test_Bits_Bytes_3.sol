@@ -8,8 +8,7 @@ import "./Koans.sol";
  * Hint: use https://codebeautify.org/ to do the conversion
  */
 contract Test_Bits_Bytes_3 is Koans {
-    bytes hello_world = "hello world";
-
+    
     function test_integers_convert_to_bytes() public {
         int integer = 123456789;
         Assert.equal(bytes32(integer), __, "should convert integer to bytes32");
@@ -56,6 +55,9 @@ contract Test_Bits_Bytes_3 is Koans {
     // "bytes" is a special variable type.
     // "bytes" is an array of single bytes, similar to "string" and "byte[]"
     //  bytes hello_world = "hello world";
+
+    bytes hello_world = "hello world";
+    
     function test_bytes_are_like_strings() public {
         uint string_length = hello_world.length;
         bytes1 first_byte = hello_world[0];
