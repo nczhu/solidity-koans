@@ -37,35 +37,41 @@ contract Test_Arrays_4 is Koans {
         Assert.equal(memory_array, __, "should be the same array");
     }
 
-        // function test_can_resize_arrays() public {
-        // arrays can only be resized in storage, not memory;
-        // https://delegatecall.com/questions/workaround-for-return-dynamic-array-from-solidity69924f08-a061-426f-a326-2bed3f566e53
-
-    // }
-
-    // You can truncate arrays, or lengthen arrays
-    function test_can_resize_arrays() public {
-
+    // You can declare an immutable, static array
+    function test_fixed_arrays() public {
+        uint[1] memory array;
+        array[0] = 1;
+        Assert.equal(array[0], __, "should only be able to store 1 uint");
     }
 
-    function test_memory_vs_storage() public {
-
+    // You can declare mutable, dynamic arrays
+    // Dynamic arrays must be initialized as "storage" variables
+    function test_dynamic_arrays() public {
+        uint[] storage array;
+        array.push(1);
+        array.push(2);
+        Assert.equal(array.length, __, "should be the correct length");
+        array.push(3);
+        Assert.equal(array.length, __, "should be the correct length");
+        Assert.equal(array[2], __, "should be the correct value at index 2");
     }
 
-    function test_static_array() public {
-
-    }
-
-    function test_dynamic_array() public {
-        
-    }
-
-    function test_out_of_bounds_array() public {
-
+    // You can resize dynamic storage arrays
+    // You cannot resize memory arrays, nor fixed arrays
+    function test_dynamic_array_resizing() public {
+        uint[] storage array; 
+        // array.push();
+        // can do .length resizing
+        // cannot resize memory array
+        // cannot rezize fixed arrays
     }
 
     // You can have a 2D matrix of arrays
     function test_array_of_arrays() public {
+
+    }
+
+    function test_out_of_bounds_array() public {
 
     }
 }
