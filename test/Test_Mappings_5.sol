@@ -6,23 +6,26 @@ import "./Koans.sol";
 contract Test_Mappings_5 is Koans {
 
     // Mappings is a list of (key => value) pairs
-    mapping(uint => string) alphabets;
+    mapping(uint => bytes32) alphabets;
     function test_maps_are_hash_tables() public {
         alphabets[0] = "a";
         alphabets[1] = "b";
-        alphabets[3] = "c";
-        Assert.equal(alphabets[2], __, "should return the 2nd letter of alphabet");
+        alphabets[2] = "c";
+        Assert.equal(alphabets[2], __, "should return the 3rd letter of alphabet");
     }
 
-    // Most datatypes can be keys
-    // key is hashed into keccak
+    // Most datatypes can be keys and values
+    // Keys are converted into keccak encryptions
     function test_any_datatype_can_be_a_key() public {
 
     }
 
-    // the key is not stored. you can't look up list of keys
+    // Nonexistent keys will still return results
+    // TODO i need to be able to solve this one haha
     function test_all_keys_return_values() public {
-
+        Assert.equal(alphabets[0], __, "should return default nil value");
+        Assert.equal(alphabets[25], __, "should return default nil value");
+        Assert.equal(alphabets[9999999], __, "should return default nil value");
     }
 
     // is this even a good practice?

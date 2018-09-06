@@ -99,15 +99,6 @@ library Assert {
     }
 
     /*
-        Author: @nczhu
-    */
-    function equal(string a, bytes1 koan, string message) public {
-        a = "";
-        koan = 0x00;
-        _report(false, message);
-    }
-
-    /*
         Function: notEqual(string)
         Assert that two strings are not equal.
         : _stringsEqual(A, B) == false
