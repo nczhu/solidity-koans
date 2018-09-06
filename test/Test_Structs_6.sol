@@ -3,11 +3,14 @@ pragma solidity ^0.4.24;
 import "../contracts/Assert.sol";
 import "./Koans.sol";
 
-contract Test_Structs_5 is Koans {
+contract Test_Structs_6 is Koans {
 
     function test_structs_are_composite_variables() public {
 
     }
+
+    // structs can have functions in there too...
+    // structs can have mappings
 
     function test_structs_optimize_storage() public {
 
