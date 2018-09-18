@@ -24,6 +24,11 @@ contract Test_Structs_6 is Koans {
     }
 
     function test_structs_accept_object_notation() public {
+        orange_grove = Orchard(12345, true);
+        Assert.__(orange_grove.in_season, "orange grove should be in season");
+
+        orange_grove = Orchard({total_trees: 54321, in_season: false});
+        Assert.equal(orange_grove.total_trees, __, "orange grove should have many trees");
 
     }
 
