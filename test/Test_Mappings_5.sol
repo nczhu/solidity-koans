@@ -56,8 +56,17 @@ contract Test_Mappings_5 is Koans {
 
     // Based on the 4 reasons above, you cannot iterate over mappings in Solidity
     // It is good practice to keep an array and count of valid keys, for later access
+    uint[] keys_in_map; 
+    mapping(uint => uint) doubles;
     function test_save_keys_when_using_mappings() public {
-
+        doubles[1] = 2;
+        doubles[2] = 4;
+        doubles[128] = 256;
+        // TODO: add the keys to your keys array
+        // __ 
+        Assert.equal(keys_in_map.length, uint(3), "map should have 4 key value pairs");
+        Assert.equal(keys_in_map[2], uint(128), "array should have the key 256");
+        Assert.equal(doubles[keys_in_map[1]], __, "should return the correct value for the key");
     }
 
     /* 
