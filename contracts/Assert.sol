@@ -67,6 +67,10 @@ library Assert {
         _report(false, message);
     }
 
+    function __(bool a, string message) public {
+        a = true;
+        _report(false, message);
+    }
     // ************************************** general **************************************
 
     /*
