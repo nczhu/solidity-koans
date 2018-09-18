@@ -105,9 +105,10 @@ library Assert {
     /* 
         Author: @nczhu
     */
-    function equal(string a, bytes1 b, string message) public returns (bool result) {
-        
+    function equal(string a, bytes1 b, string message) public returns (string) {
+        b = 0x00;
         _report(false, message);
+        return(a);
     }
 
     /*

@@ -25,22 +25,26 @@ contract Test_Mappings_5 is Koans {
     // Keys can be all basic data types, even "bytes" and "string"
     // Keys are converted into bytes32 keccak encryptions, so collisions are next to impossible
     mapping(bool => bool) bool_map;
-    mapping(bytes32 => bytes32) bytes32_map;
     mapping(string => string) string_map;
     string constant str = "strings can be keys to mappings";
-
     function test_map_keys_can_be_elementary_datatypes() public {
         bool_map[true] = true;
-        bytes32_map[0x0000000000000000000000000000000000000000000000000000000000000000] = 0x0000000000000000000000000000000000000000000000000000000000000001;
         string_map[str] = str;
         Assert.isTrue(__, "should return valid value for bool key");
-        Assert.equal(bytes32_map[bytes32(0)], __, "should return valid value for bytes32 key");
-        Assert.equal(string_map[str], "strings can be keys to mappings", "should return valid value for string key");
+        Assert.equal(string_map[str], __, "should return valid value for string key");
     }
 
-    // Values can be all data types, even arrays, structs, and mappings
+    // Values can be complex data types, including arrays, structs, and mappings
+    mapping(uint => uint) map_of_ints;
+    mapping(uint => uint[]) map_of_ints_array;
+    mapping(uint => mapping(uint=>uint)) map_of_map_of_ints; 
     function test_map_values_can_be_complex_datatypes() public {
-
+        map_of_ints[0] = 1 ;
+        map_of_ints_array[0] = [2, 3, 4];
+        map_of_map_of_ints[0][0] = 5;
+        Assert.equal(map_of_ints[0], __, "should equal the correct value");
+        Assert.equal(map_of_ints_array[0][1], __, "should equal the correct array value");
+        Assert.equal(map_of_map_of_ints[0][0], __, "should equal the correct map value");
     }
 
     // You can look up nonexistent keys and still get returned values
