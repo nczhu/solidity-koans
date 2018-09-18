@@ -102,6 +102,14 @@ library Assert {
             _report(result, _appendTagged(_tag(a, "Tested"), _tag(b, "Against"), message));
     }
 
+    /* 
+        Author: @nczhu
+    */
+    function equal(string a, bytes1 b, string message) public returns (bool result) {
+        
+        _report(false, message);
+    }
+
     /*
         Function: notEqual(string)
         Assert that two strings are not equal.

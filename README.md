@@ -33,6 +33,7 @@ Learn Etherem programming through test driven development. The Koans walk you al
 - Getter modifiers: view, pure, constant
 
 ### Transactions
+- address: how its computed
 - data
 - msg.sender
 - msg.value

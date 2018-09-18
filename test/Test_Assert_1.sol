@@ -39,5 +39,9 @@ contract Test_Assert_1 is Koans {
         Assert.notEqual(actual, int(__), "should NOT be equal");
     }
 
-    // To see currently supported tests, check out https://github.com/trufflesuite/truffle/blob/master/packages/truffle-core/lib/testing/Assert.sol
+    /*  
+        Explore further: 
+        To see currently supported assertion tests, check out
+        https://github.com/trufflesuite/truffle/blob/master/packages/truffle-core/lib/testing/Assert.sol
+    */
 }
