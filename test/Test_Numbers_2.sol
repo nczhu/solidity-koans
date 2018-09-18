@@ -88,6 +88,8 @@ contract Test_Numbers_2 is Koans {
         Assert.equal(more_than_max, __, "result should be overflowed");
     }
 
-    // Read about the security issues of arithmetic flows here: 
-    // https://medium.com/coinmonks/ethernaut-lvl-5-walkthrough-how-to-abuse-arithmetic-underflows-and-overflows-2c614fa86b74
+    /* 
+        Read more about the security issues of arithmetic flows here: 
+        https://medium.com/coinmonks/ethernaut-lvl-5-walkthrough-how-to-abuse-arithmetic-underflows-and-overflows-2c614fa86b74
+    */
 }

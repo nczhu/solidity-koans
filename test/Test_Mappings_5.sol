@@ -3,44 +3,65 @@ pragma solidity ^0.4.24;
 import "../contracts/Assert.sol";
 import "./Koans.sol";
 
+/* 
+    You can using mappings in Solidity
+    It's similar to hashmaps or dictionaries in other languages
+    With a few eccentricities and rules to remember...
+ */
+
 contract Test_Mappings_5 is Koans {
 
-    // Mappings is a list of (key => value) pairs
+    // Mappings is a list of (key => value) pairs and default to storage
     mapping(uint => bytes32) alphabets;
-    function test_maps_are_hash_tables() public {
+    function test_maps_are_like_hash_tables() public {
         alphabets[0] = "a";
         alphabets[1] = "b";
         alphabets[2] = "c";
+        Assert.equal(alphabets[0], __, "should return the 1st letter of alphabet");
+        Assert.equal(alphabets[1], __, "should return the 2nd letter of alphabet");
         Assert.equal(alphabets[2], __, "should return the 3rd letter of alphabet");
     }
 
-    // Most datatypes can be keys and values
-    // Keys are converted into keccak encryptions
-    function test_any_datatype_can_be_a_key() public {
-
+    // Keys can be all basic data types, even "bytes" and "string"
+    // Keys are converted into bytes32 keccak encryptions, so collisions are next to impossible
+    mapping(bool => bool) bool_map;
+    mapping(string => string) string_map;
+    string constant str = "strings can be keys to mappings";
+    function test_map_keys_can_be_elementary_datatypes() public {
+        bool_map[true] = true;
+        string_map[str] = str;
+        Assert.isTrue(__, "should return valid value for bool key");
+        Assert.equal(string_map[str], __, "should return valid value for string key");
     }
 
-    // Nonexistent keys will still return results
-    // TODO i need to be able to solve this one haha
+    // Values can be complex data types, including arrays, structs, and mappings
+    mapping(uint => uint) map_of_ints;
+    mapping(uint => uint[]) map_of_ints_array;
+    mapping(uint => mapping(uint=>uint)) map_of_map_of_ints; 
+    function test_map_values_can_be_complex_datatypes() public {
+        map_of_ints[0] = 1 ;
+        map_of_ints_array[0] = [2, 3, 4];
+        map_of_map_of_ints[0][0] = 5;
+        Assert.equal(map_of_ints[0], __, "should equal the correct value");
+        Assert.equal(map_of_ints_array[0][1], __, "should equal the correct array value");
+        Assert.equal(map_of_map_of_ints[0][0], __, "should equal the correct map value");
+    }
+
+    // You can look up nonexistent keys and still get returned values
+    // See Assert.sol for available assertion methods
     function test_all_keys_return_values() public {
-        Assert.equal(alphabets[0], __, "should return default nil value");
-        Assert.equal(alphabets[25], __, "should return default nil value");
-        Assert.equal(alphabets[9999999], __, "should return default nil value");
+        Assert.__(alphabets[25], "should return default nil value");
+        Assert.__(alphabets[9999999], "should return default nil value");
     }
 
-    // is this even a good practice?
-    function test_iterate_over_maps() public {
+    // Based on the 4 reasons above, you cannot iterate over mappings in Solidity
+    // It is good practice to keep an array and count of valid keys, for later access
+    function test_save_keys_when_using_mappings() public {
 
     }
 
-    // all keys exist
-
-    // best practices, map of addresses to ...
-
-    // simple example with simple data
-
-    // complex example with structs/arrays
-
-    // how to iterate maps
-
+    /* 
+        To get iterable mapping functionality, check out this library: 
+        https://github.com/ethereum/dapp-bin/blob/master/library/iterable_mapping.sol
+    */
 }

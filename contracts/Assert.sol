@@ -62,6 +62,10 @@ library Assert {
     */
     event TestEvent(bool indexed result, string message);
 
+    function __(bytes32 a, string message) public {
+        _report(false, message);
+    }
+
     // ************************************** general **************************************
 
     /*
@@ -96,6 +100,15 @@ library Assert {
             _report(result, message);
         else
             _report(result, _appendTagged(_tag(a, "Tested"), _tag(b, "Against"), message));
+    }
+
+    /* 
+        Author: @nczhu
+    */
+    function equal(string a, bytes1 b, string message) public returns (string) {
+        b = 0x00;
+        _report(false, message);
+        return(a);
     }
 
     /*

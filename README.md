@@ -1,8 +1,8 @@
 # Solidity Koans
 
-“If your mind is empty, it is always ready for anything, it is open to everything. In the beginner’s mind there are many possibilities, but in the expert’s mind there are few. ”
+Learn Etherem programming through test driven development. The Koans walk you along the path to enlightenment in order to learn Solidity - as inspired by Ruby Koans.
 
-So humble yo-self and do some Solidity Koans ;)
+“If your mind is empty, it is always ready for anything, it is open to everything. In the beginner’s mind there are many possibilities, but in the expert’s mind there are few. ”
 
 ## Directions
 
@@ -33,6 +33,7 @@ So humble yo-self and do some Solidity Koans ;)
 - Getter modifiers: view, pure, constant
 
 ### Transactions
+- address: how its computed
 - data
 - msg.sender
 - msg.value
@@ -75,7 +76,7 @@ So humble yo-self and do some Solidity Koans ;)
 
  1. Fork it the project
  2. Create your feature branch using issue #: `git checkout -b issue#-feature`
- 3. Commit your changes: git commit -am 'Fix/Add/Change: commit msg'
+ 3. Commit your changes: `git commit -am 'Fix/Add/Change: commit msg'`
  4. Push to the branch: `git push origin issue#-feature`
  5. Create a new Pull Request
 
