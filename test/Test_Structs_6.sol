@@ -32,6 +32,8 @@ contract Test_Structs_6 is Koans {
 
     }
 
+    // ---------------------------------------------------
+
     function test_structs_can_contain_functions() public {
 
     }
@@ -39,14 +41,15 @@ contract Test_Structs_6 is Koans {
     function test_structs_can_contain_mappings() public {
 
     }
-    // structs can have functions in there too...
-    // structs can have mappings
 
-    // use low level to test...
-
+    // It is common practice to keep an array, i.e. list of structs
     function test_you_can_have_arrays_of_structs() public {
 
     }
+
+    // Pro tip: Solidity won't let you return structs from functions
+    // However, you can get the same desired functionality by creating
+    // A mapping of structs, which has a default, getter function
     function test_you_can_have_mappings_of_structs() public {
 
     }
