@@ -10,6 +10,7 @@ function equal(int a, bytes1 b, string message) public {
 function equal(uint a, bytes1 b, string message) public {
 function notEqual(int a, bytes1 b, string message) public {
 function isBelow(bytes1 a, bytes1 b, string message) public {
+function __(bytes32, string message)
 
 
 Function: fail()

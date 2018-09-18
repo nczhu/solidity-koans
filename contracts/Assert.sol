@@ -62,6 +62,10 @@ library Assert {
     */
     event TestEvent(bool indexed result, string message);
 
+    function __(bytes32 a, string message) public {
+        _report(false, message);
+    }
+
     // ************************************** general **************************************
 
     /*

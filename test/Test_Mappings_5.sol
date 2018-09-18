@@ -21,11 +21,10 @@ contract Test_Mappings_5 is Koans {
     }
 
     // Nonexistent keys will still return results
-    // TODO i need to be able to solve this one haha
+    // See README for available assertion functions
     function test_all_keys_return_values() public {
-        Assert.equal(alphabets[0], __, "should return default nil value");
-        Assert.equal(alphabets[25], __, "should return default nil value");
-        Assert.equal(alphabets[9999999], __, "should return default nil value");
+        Assert.__(alphabets[25], "should return default nil value");
+        Assert.__(alphabets[9999999], "should return default nil value");
     }
 
     // is this even a good practice?
