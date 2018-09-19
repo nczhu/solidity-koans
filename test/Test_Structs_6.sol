@@ -47,14 +47,26 @@ contract Test_Structs_6 is Koans {
         Assert.__(kitchen_light.is_on, "kitchen light should be turned on");
     }
 
-    function helper() {
+    function helper() private {
         kitchen_light.is_on = true;
     }
     
     // ---------------------------------------------------
 
-    function test_structs_can_contain_mappings() public {
+    struct Thesaurus {
+        bytes32[] available_words;
+        mapping(bytes32 => bytes32) synonyms;
+    }
 
+    Thesaurus th; 
+
+    function test_structs_can_contain_mappings() public {
+        th.synonyms["zen"] = "serene";
+        th.available_words.push("zen");
+        th.synonyms["tranquil"] = "calm";
+        th.available_words.push("tranquil");
+        Assert.equal(th.synonyms[th.available_words[1]], __, "should return the correct synonym");
+        Assert.equal(th.synonyms[th.available_words[0]], __, "should return the correct synonym");
     }
 
     // It is common practice to keep an array, i.e. list of structs
