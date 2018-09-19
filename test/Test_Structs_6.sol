@@ -89,8 +89,17 @@ contract Test_Structs_6 is Koans {
     // Pro tip: Solidity won't let functions externally return structs
     // However, you can get the same desired functionality by creating
     // A mapping of structs, which has a default, getter function
-    function test_you_can_have_mappings_of_structs() public {
+    struct Roster {
+        bytes32 first_name;
+        bytes32 last_name;
+    }
+    mapping(uint => Roster) name_map;
 
+    function test_you_can_have_mappings_of_structs() public {
+        // TODO: add a Roster struct to the mapping to pass the test
+        // __
+        Assert.equal(name_map[0].first_name, "Chris", "mapping should contain a struct with the correct first_name");
+        Assert.equal(name_map[0].last_name, "Hemsworth", "mapping should contain a struct with the correct last_name");
     }
 
     function test_structs_optimize_storage() public {
