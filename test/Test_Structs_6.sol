@@ -69,9 +69,21 @@ contract Test_Structs_6 is Koans {
         Assert.equal(th.synonyms[th.available_words[0]], __, "should return the correct synonym");
     }
 
-    // It is common practice to keep an array, i.e. list of structs
-    function test_you_can_have_arrays_of_structs() public {
+    // ---------------------------------------------------
 
+    // It is common practice to keep an array, i.e. list of structs
+
+    struct Funder {
+        uint amount;
+        bytes32 name;
+    }
+    Funder[] funders;
+    function test_you_can_have_arrays_of_structs() public {
+        funders.push(Funder(100,"Anne"));    
+        funders.push(Funder(200,"Ken"));    
+        funders.push(Funder(300,"Daniel"));   
+        Assert.equal(funders[1].amount, __, "should be correct fund amount from Ken"); 
+        Assert.equal(funders[2].name, __, "should be correct name who donated 300"); 
     }
 
     // Pro tip: Solidity won't let functions externally return structs
