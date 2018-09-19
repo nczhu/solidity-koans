@@ -33,10 +33,25 @@ contract Test_Structs_6 is Koans {
     }
 
     // ---------------------------------------------------
+    
+    struct Switch {
+        bool is_on;
+        function() turn_on_switch;
+    }
+
+    Switch kitchen_light;
 
     function test_structs_can_contain_functions() public {
-
+        kitchen_light.turn_on_switch = helper;
+        kitchen_light.turn_on_switch();
+        Assert.__(kitchen_light.is_on, "kitchen light should be turned on");
     }
+
+    function helper() {
+        kitchen_light.is_on = true;
+    }
+    
+    // ---------------------------------------------------
 
     function test_structs_can_contain_mappings() public {
 
@@ -47,7 +62,7 @@ contract Test_Structs_6 is Koans {
 
     }
 
-    // Pro tip: Solidity won't let you return structs from functions
+    // Pro tip: Solidity won't let functions externally return structs
     // However, you can get the same desired functionality by creating
     // A mapping of structs, which has a default, getter function
     function test_you_can_have_mappings_of_structs() public {

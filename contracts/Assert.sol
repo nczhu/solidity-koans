@@ -62,11 +62,17 @@ library Assert {
     */
     event TestEvent(bool indexed result, string message);
 
+    /*
+        Author: @nczhu
+    */
     function __(bytes32 a, string message) public {
         a = bytes32(0x00);
         _report(false, message);
     }
 
+    /*
+        Author: @nczhu
+    */
     function __(bool a, string message) public {
         a = true;
         _report(false, message);
