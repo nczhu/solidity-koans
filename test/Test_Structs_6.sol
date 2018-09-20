@@ -108,6 +108,28 @@ contract Test_Structs_6 is Koans {
         Assert.equal(name_map[0].last_name, "Hemsworth", "mapping should contain a struct with the correct last_name");
     }
 
+    // ---------------------------------------------------
+
+    // All empty variables in Solidity default to 0,
+    // If you must validate if your structs are initialized
+    // The convention is to use a boolean flag to indicate its state
+
+    struct Slot_Machine {
+        uint num1;
+        uint num2;
+        uint num3;
+        bool exists;
+    }
+
+    Slot_Machine machine1;
+    Slot_Machine machine2;
+    
+    function test_use_flag_to_indicate_when_struct_is_initialized() public {
+        machine2 = Slot_Machine(7, 7, 7, true);
+        Assert.__(machine1.exists, "should return the correct initialization state");
+        Assert.__(machine2.exists, "should return the correct initialization state");
+    }
+
     /*
         To learn more about structs and usage conventions, check out: 
         https://medium.com/coinmonks/ethernaut-lvl-17-locked-walkthrough-how-to-properly-use-structs-in-solidity-f9900c8843e2
