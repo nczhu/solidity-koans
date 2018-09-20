@@ -6,17 +6,47 @@ import "./Koans.sol";
 
 /*
     Like all stack based machines, the Ethereum Virtual Machine
-    Separately accesses a memory and a storage
+    Computes data in memory (temporary) and storage (permanent)
     Memory persists within the function, while
     Storage is written into the blockchain
 */
+
 contract Test_Storage_vs_Memory is Koans {
+    // todo: I should clear storage after every test suite
 
-        // ---------------------------------------------------
+    // ---------------------------------------------------
+    // What is Memory
 
-    // EVM will optimize struct storage, based on documentation: 
+    // ---------------------------------------------------
+
+    // What is Storage
+    // anythign globally declared
+
+    // ---------------------------------------------------
+    // Defaults for diff vars
+
+
+    // uint, bytes, basic types
+    // vs structs, arrays, mappings
+    // function parameters
+
+
+    // ---------------------------------------------------
+    // Not being careful will override data!!
+
+
+    // ---------------------------------------------------
+    // Storage Layout Optimization
+
+    // globally declared vars
+    // structs is even moreimpt
+
+    // ...
+
+    // EVM optimizes struct storage. From the documentation: 
     // Statically-sized variables are laid out contiguously in storage starting from slot position 0. 
-    // Multiple items that need less than 32 bytes are packed into a single storage slot if possible
+    // Multiple items that need less than 32 bytes are packed into a single storage slot if possible.
+    
     struct Small {
         uint16 num1;
         uint16 num2;
@@ -28,6 +58,7 @@ contract Test_Storage_vs_Memory is Koans {
         bytes32 str; 
         uint16 num2;
     }
+
     Small s;    // How many slots will a Small struct occupy?
     Big b;      // How many slots will a Big struct occupy?
 
