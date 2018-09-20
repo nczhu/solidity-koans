@@ -18,4 +18,22 @@ contract Koans {
         a = 0; //suppresses compiler warning
         return 32;
     }
+
+    /*
+        Author: @nczhu
+        Function: getStorageSize()
+        Returns: returns the current contract storage size, in slots
+        Vulnerabilities: stops at 0, so valid 0 values will end the loop.
+        TODO: fix this vulnerability :)
+    */
+    // function getStorageSize() public returns(uint){
+    //     uint i;
+    //     bytes32 value;
+    //     assembly {value := sload(i)}
+    //     while (value != 0) {
+    //         i++;
+    //         assembly {value := sload(i)}
+    //     }
+    //     return i;
+    // }
 }

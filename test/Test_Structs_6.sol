@@ -6,6 +6,8 @@ import "./Koans.sol";
 /* 
     You can create structs in Solidity, like objects in OOP
     Structs are composite data types that optimize storage
+    Structs default to storage, so make sure you have preallocated
+    Storage space for all of your struct usage
 */
 
 contract Test_Structs_6 is Koans {
@@ -16,6 +18,7 @@ contract Test_Structs_6 is Koans {
     }
 
     Orchard orange_grove;
+
     function test_structs_are_composite_variables() public {
         orange_grove.total_trees = 2048;
         orange_grove.in_season = true;
@@ -86,9 +89,12 @@ contract Test_Structs_6 is Koans {
         Assert.equal(funders[2].name, __, "should be correct name who donated 300"); 
     }
 
+    // ---------------------------------------------------
+
     // Pro tip: Solidity won't let functions externally return structs
     // However, you can get the same desired functionality by creating
-    // A mapping of structs, which has a default, getter function
+    // A mapping of structs, which has a default getter function
+
     struct Roster {
         bytes32 first_name;
         bytes32 last_name;
@@ -102,18 +108,9 @@ contract Test_Structs_6 is Koans {
         Assert.equal(name_map[0].last_name, "Hemsworth", "mapping should contain a struct with the correct last_name");
     }
 
-    function test_structs_optimize_storage() public {
-
-    }
-
-    // Structs default to storage, not memory
-    // Warning: Solidity doesn't throw warnings when you create structs
-    // Inside functions, and overrides storage of other values
-    // You should never do the following
-    function test_structs_default_to_storage() public {
-        // Funder f;         //this defaults to storage
-        // f.address = ...;
-        // f.amount = ...;
-    }
+    /*
+        To learn more about structs and usage conventions, check out: 
+        https://medium.com/coinmonks/ethernaut-lvl-17-locked-walkthrough-how-to-properly-use-structs-in-solidity-f9900c8843e2
+    */
 
 }

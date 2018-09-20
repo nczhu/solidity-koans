@@ -77,6 +77,15 @@ library Assert {
         a = true;
         _report(false, message);
     }
+
+    /*
+        Author: @nczhu
+    */
+    function __(uint a, uint b, string message) public {
+        a = b;
+        _report(false, message);
+    }
+
     // ************************************** general **************************************
 
     /*
