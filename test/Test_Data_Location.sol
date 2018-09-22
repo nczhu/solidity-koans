@@ -8,21 +8,51 @@ import "./Koans.sol";
     The Ethereum Virtual Machine has 3 separate places to store data:
     1. Memory: a temporary state that persists within internal function calls
     2. Storage: a permanent state written to the blockchain
-    3. Stack/call: a transaction level state saved on the machine stack    
+    3. Stack: a transactional, temporary state saved on the stack machine
     Data-types have different defaults and quirks when it comes to storage
 */
 
 contract Test_Data_Location is Koans {
     
-    function test_basic_data_defaults_to_memory() public {
+
+    // Local variables (except arrays, structs, mappings) are stored in the stack
+    function test_basic_data_default_to_stack() public {
+
+    }
+    
+    // State variables are always in storage
+    function test_global_state_is_always_storage() public {
 
     }
 
+    // Local variables of struct type reference storage by default
+    function test_structs_default_to_storage() public {
+
+    }
+
+    // Local variables of array type reference storage by default
+    function test_arrays_default_to_storage() public {
+
+    }
+
+    // Local variables of mapping type reference storage by default
+    function test_mapping_default_to_storage() public {
+
+    }
+
+    // function input arguments are always in memory
     function test_functions_params_are_memory() public {
-
+        // show that changing array data doesnt change struct...
     }
 
-    function 
+    // You can force data from stack into memory...
+    function test_can_store_array_structs_in_memory() public {
+        
+    }
+
+    function you_can_force_variables_into_storage() public {
+
+    }
 
     // TODO: refactor this out into koans.sol
 
