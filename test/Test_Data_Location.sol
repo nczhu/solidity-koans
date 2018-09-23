@@ -10,14 +10,23 @@ import "./Koans.sol";
     2. Storage: a permanent state written to the blockchain
     3. Stack: a transactional, temporary state saved on the stack machine
     Data-types have different defaults and quirks when it comes to storage
+
+    We'll include some assembly code in this level to directly access stack, memory or storage.
+    But don't worry about learning assembly opcodes just yet.
+    For reference: https://solidity.readthedocs.io/en/v0.4.24/assembly.html
 */
 
 contract Test_Data_Location is Koans {
-    
 
     // Local variables (except arrays, structs, mappings) are stored in the stack
     function test_basic_data_default_to_stack() public {
-
+        uint actual;
+        uint a = 1;
+        uint b = 2;
+        // Hint: swap1 is a stack-level command that swaps the most recent and second most recent datapoints on the stack
+        assembly { swap1 }
+        actual = a ** b;
+        Assert.equal(actual, __, "should return the correct exponent, given stack ordering");
     }
     
     // State variables are always in storage
@@ -54,27 +63,6 @@ contract Test_Data_Location is Koans {
 
     }
 
-    // TODO: refactor this out into koans.sol
-
-    /*
-        Author: @nczhu
-        Function: get_first_nil_slot(uint i)
-        Returns: the index of the first nil slot in storage to occur after _initial index              
-    */
-    function getNextEmptyStorageSlot(uint i) public returns (uint) {
-        uint i;
-        bytes32 value;
-        assembly {value := sload(i)}
-        while (value != 0) {
-            i++;
-            assembly {value := sload(i)}
-        }
-        return i;
-    }
-
-    uint initial_size = get_first_nil_slot(); 
-
-    // todo: I should clear storage after every test suite. aftereach
 
     // ---------------------------------------------------
     // What is Memory
