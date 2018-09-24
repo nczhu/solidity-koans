@@ -20,8 +20,9 @@ import "./Koans.sol";
 contract Test_Storage_7 is Koans {
 
     /*  ----------------------Stack-----------------------------
-        Locally declared, primitive variables are stored in the Stack.
-        This rule excludes arrays, structs, mappings, which must occupy Memory or Storage
+        1. Local, primitive variables are pushed and popped via the Stack, in LIFO order.
+        2. Remember: arrays, structs, mappings, are NOT saved to the Stack.
+           Complex datatypes must be saved to Memory or Storage.
     */
 
     function test_local_primitives_default_to_the_stack() public {
@@ -35,11 +36,11 @@ contract Test_Storage_7 is Koans {
     }
 
     /*  ----------------------Memory-----------------------------
-        The EVM allocates infinite memory per computation.
-        Memory usage consumes more gas than stack usage.
-        You can create temporary arrays and structs with the keyword "memory".
-        However, you cannot create mappings in memory.
-        This is because mappings have a key, value data structure that only works in Storage
+        1. The EVM allocates infinite memory per computation.
+        2. Memory usage consumes more gas than stack usage.
+        3. Memory is a single byte array, where new data is appended at the end
+        4. As such, you cannot create mappings in memory. This is because 
+           mappings have a key, value data structure that only works in Storage
     */
 
     function test_you_can_create_arrays_in_memory() public {
@@ -74,12 +75,11 @@ contract Test_Storage_7 is Koans {
     }
 
     /*  ----------------------Storage-----------------------------
-        Ethereum storage allocates 2^256 bytes of storage per contract.
-        Storage usage consumes more gas than Memory usage.
-
-        Storage is divided into sequential, 32-byte-sized "slots", starting at index 0.
-        If data less than 32 bytes in size are grouped together, the EVM will save space 
-        by automatically packing them into a single storage slot of 32 bytes, if possible.
+        1. Ethereum storage allocates 2^256 bytes of storage per contract.
+        2. Storage usage consumes more gas than Memory usage.
+        3. Storage is divided into sequential, 32-byte-sized "slots", starting at index 0.
+        4. If data less than 32 bytes in size are grouped together, the EVM will save space 
+           by automatically packing them into a single storage slot of 32 bytes, if possible.
     */
 
     function test_global_variables_default_to_storage() public {
