@@ -25,7 +25,7 @@ Learn Etherem programming through test driven development. The Koans walk you al
 4. [Arrays](./test/Test_Arrays_4.sol)
 5. [Mappings](./test/Test_Mappings_5.sol)
 6. [Structs](./test/Test_Structs_6.sol)
-7. [Data Location](./test/Test_Data_Location.sol)
+7. [Storage](./test/Test_Storage_7.sol)
 
 ### Function types
 - variable modifers: public private
