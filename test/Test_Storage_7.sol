@@ -20,7 +20,7 @@ contract Test_Storage_7 is Koans {
 
     // ----------------------Stack-----------------------------
 
-    // Local variables (except arrays, structs, mappings) are stored in the Stack
+    // Local, single variables (except arrays, structs, mappings) are stored in the Stack
     function test_basic_data_default_to_stack() public {
         uint actual;
         uint a = 1;
@@ -33,17 +33,13 @@ contract Test_Storage_7 is Koans {
 
     // ----------------------Memory-----------------------------
 
-    // Function input arguments are always stored in memory
-    function test_functions_params_are_stored_in_memory() public {
-        
-    }
-
     // You can create arrays in memory with keyword "memory"
     function test_create_arrays_in_memory() public {
         uint256[2] memory array = [uint256(16), uint256(32)];
         uint memory_at_c0;
         uint memory_at_e0;
         // Hint: mload(n) is a memory-level command that loads the variable stored in memory slot n
+        // Hint: Memory indices start at 0xc0
         assembly {
             memory_at_c0 := mload(0xc0)
             memory_at_e0 := mload(0xe0) 
@@ -52,14 +48,22 @@ contract Test_Storage_7 is Koans {
         Assert.equal(memory_at_e0, array[uint(__)], "should be the correct value in memory slot 0xe0");
     }
 
-    // You can create mappings in memory
-    function test_create_mappings_in_memory() public {
-        
+    // You can create structs in memory with keyword "memory"
+    struct Person {
+        bytes32 name;
+        uint8 age;
     }
 
-    // You can create structs in memory
     function test_create_structs_in_memory() public {
-        
+        Person memory john = Person("John Doe", 48); 
+        bytes32 memory_at_c0;
+        uint memory_at_e0;
+        assembly {
+            memory_at_c0 := mload(0xc0)
+            memory_at_e0 := mload(0xe0)
+        }
+        Assert.equal(memory_at_c0, __, "should be the correct value in memory slot 0xc0");
+        Assert.equal(memory_at_e0, __, "should be the correct value in memory slot 0xe0");
     }
 
     // ----------------------Storage-----------------------------
@@ -94,7 +98,6 @@ contract Test_Storage_7 is Koans {
     function test_structs_default_to_storage() public {
 
     }
-
 
     // The EVM optimizes struct storage. From the documentation: 
     // Statically-sized variables are laid out contiguously in storage starting from slot position 0. 
