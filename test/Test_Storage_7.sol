@@ -5,20 +5,23 @@ import "./Koans.sol";
 
 
 /*
-    The Ethereum Virtual Machine has 3 separate places to store data:
-    1. Memory: a temporary state that persists within internal function calls
-    2. Storage: a permanent state written to the blockchain
-    3. Stack: a transactional, temporary state saved on the stack machine
-    Data-types have different defaults and quirks when it comes to storage
+    The Ethereum Virtual Machine has 3 separate places to "store" data:
+    1. Stack: a transactional data store used by the stack machine
+    2. Memory: a temporary data store that persists within internal function calls
+    3. Storage: a permanent state written to the blockchain
+
+    In this level, we learn how the EVM stores primitive vs complex datatypes.
 
     We'll use some assembly in this level to directly access stack, memory or storage.
-    You don't have to learn assembly just yet, hints are provided inline.
-    For reference: https://solidity.readthedocs.io/en/v0.4.24/assembly.html
+    But dont worry - you don't have to learn assembly programming just yet.
+    Opcode definitions are provided for you inline and here: https://solidity.readthedocs.io/en/v0.4.24/assembly.html
 */
 
 contract Test_Storage_7 is Koans {
 
-    // ----------------------Stack-----------------------------
+    /*  ----------------------Stack-----------------------------
+        TODO description
+    */
 
     // Local, single variables (except arrays, structs, mappings) are stored in the Stack
     function test_local_primitives_default_to_the_stack() public {
@@ -31,7 +34,10 @@ contract Test_Storage_7 is Koans {
         Assert.equal(actual, __, "should return the correct exponent, given stack ordering");
     }
 
-    // ----------------------Memory-----------------------------
+    /*  ----------------------Memory-----------------------------
+        TODO description
+        You cannot create mappings in memory. This is because mappings have access to the entire 2^256 storage
+    */
 
     // You can create temporary arrays in memory with keyword "memory"
     function test_you_can_create_arrays_in_memory() public {
@@ -66,11 +72,15 @@ contract Test_Storage_7 is Koans {
         Assert.equal(memory_at_e0, __, "should be the correct value in memory slot 0xe0");
     }
 
-    // Note: you cannot create mappings in memory. This is because mappings have access to the entire 2^256 storage
+    /*  ----------------------Storage-----------------------------
+        Ethereum storage is xxx bytes per contract.
+        The storage is sequentially divided into 32 byte sized "slots", starting at slot 0.
+        
+        If sequentially declared data types are less than 32 bytes, the EVM will save space 
+        by automatically packing them into a single storage slot of 32 bytes.
+    */
 
-    // ----------------------Storage-----------------------------
-
-    // Global variables are stored in Storage, starting at slot 0
+    // Global variables are sequentially stored in Storage, starting at slot 0
     function test_global_variables_default_to_storage() public {
         bytes1 storage_at_0;
         uint storage_at_1;
@@ -79,44 +89,42 @@ contract Test_Storage_7 is Koans {
             storage_at_0 := sload(0)
             storage_at_1 := sload(1)
         }
-        // Hint: we already have global variables initialized in the parent contract "Koans"
+        // Hint: we declared global variables in the parent contract "Koans.sol"
         Assert.equal(storage_at_0, __, "should return a 1 byte value stored at storage slot 0");
         Assert.equal(storage_at_1, __, "should return a uint256 value stored at storage slot 1");
     }
 
-    // Local variables of array type reference storage by default
-    uint8[] a = [1,2,3];
+    // How arrays are stored: 
+    // First, the array length is stored at the next available storage slot, starting at 0
+    // Then, the array's contents are concatenated and stored in ...[..]
+    uint[] a = [1,2,3];
+    
+    function test_arrays_default_to_storage() public {
+        uint x;
+        uint y;
+        uint z;
+        assembly {
+            x := sload(1)
+            y := sload(2)
+            // TODO: replace 3 with the correct hash
+            z := sload(3)   
+        }
+        Assert.equal(x, __, "should return the value stored at storage slot 1");
+        Assert.equal(y, __, "should return the value stored at storage slot 2, i.e. the array length");
+        Assert.equal(z, __, "should return the optimized array values stored at storage(array_hash)");
+    }
 
-    // function test_arrays_default_to_storage() public {
-    //     uint storage_1;
-    //     uint storage_2;
-    //     uint storage_3;
-    //     assembly {
-    //         storage_1 := sload(1)
-    //         storage_2 := sload(2)
-    //         storage_3 := sload(3)
-    //     }
-    //     Assert.equal(storage_1, global_var2, "should return the value stored at storage slot 1");
-    //     Assert.equal(storage_2, uint(1), "should return the value stored at storage slot 2");
-    //     Assert.equal(storage_3, uint(2), "should return the value stored at storage slot 3");
-    // }
-
-    // Local variables of mapping type reference storage by default
+    // How mappings are stored: 
+    // First ...
     function test_mappings_default_to_storage() public {
 
     }
 
+    // How structs are stored
     function test_structs_default_to_storage() public {
 
     }
 
-    // The EVM optimizes struct storage. From the documentation: 
-    // Statically-sized variables are laid out contiguously in storage starting from slot position 0. 
-    // Multiple items that need less than 32 bytes are packed into a single storage slot if possible.
-
-    function test_EVM_optimizes_storage() public {
-
-    }
 
     // Last test
     // ---------------------------------------------------
