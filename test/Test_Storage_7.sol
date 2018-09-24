@@ -6,13 +6,13 @@ import "./Koans.sol";
 
 /*
     The Ethereum Virtual Machine has 3 separate places to "store" data:
-    1. Stack: a transactional data store used by the stack machine
-    2. Memory: a temporary data store that persists within internal function calls
-    3. Storage: a permanent state written to the blockchain
+    1. Stack: A last-in-first-out container to which values can be pushed and popped, resetting per computation
+    2. Memory: An infinitely expandable byte array, resetting per computation
+    3. Storage: The contract's long-term state, a key/value store, written onto the blockchain.
 
     In this level, we learn how the EVM stores primitive vs complex datatypes.
 
-    We'll use some assembly in this level to directly access stack, memory or storage.
+    We'll use some assembly opcodes to directly read from stack, memory or storage.
     But dont worry - you don't have to learn assembly programming just yet.
     Opcode definitions are provided for you inline and here: https://solidity.readthedocs.io/en/v0.4.24/assembly.html
 */
@@ -20,10 +20,10 @@ import "./Koans.sol";
 contract Test_Storage_7 is Koans {
 
     /*  ----------------------Stack-----------------------------
-        TODO description
+        Locally declared, primitive variables are stored in the Stack.
+        This rule excludes arrays, structs, mappings, which must occupy Memory or Storage
     */
 
-    // Local, single variables (except arrays, structs, mappings) are stored in the Stack
     function test_local_primitives_default_to_the_stack() public {
         uint actual;
         uint a = 1;
@@ -35,17 +35,18 @@ contract Test_Storage_7 is Koans {
     }
 
     /*  ----------------------Memory-----------------------------
-        TODO description
-        You cannot create mappings in memory. This is because mappings have access to the entire 2^256 storage
+        The EVM allocates infinite memory per computation.
+        Memory usage consumes more gas than stack usage.
+        You can create temporary arrays and structs with the keyword "memory".
+        However, you cannot create mappings in memory.
+        This is because mappings have a key, value data structure that only works in Storage
     */
 
-    // You can create temporary arrays in memory with keyword "memory"
     function test_you_can_create_arrays_in_memory() public {
         uint256[2] memory array = [uint256(16), uint256(32)];
         uint memory_at_c0;
         uint memory_at_e0;
-        // Hint: mload(n) is a memory-level command that loads the variable stored in memory slot n
-        // Hint: Memory indices start at 0xc0
+        // Hint: mload(n) reads the data in Memory, at location n (in our case, this starts at 0xc0)
         assembly {
             memory_at_c0 := mload(0xc0)
             memory_at_e0 := mload(0xe0) 
@@ -73,30 +74,32 @@ contract Test_Storage_7 is Koans {
     }
 
     /*  ----------------------Storage-----------------------------
-        Ethereum storage is xxx bytes per contract.
-        The storage is sequentially divided into 32 byte sized "slots", starting at slot 0.
-        
-        If sequentially declared data types are less than 32 bytes, the EVM will save space 
-        by automatically packing them into a single storage slot of 32 bytes.
+        Ethereum storage allocates 2^256 bytes of storage per contract.
+        Storage usage consumes more gas than Memory usage.
+
+        Storage is divided into sequential, 32-byte-sized "slots", starting at index 0.
+        If data less than 32 bytes in size are grouped together, the EVM will save space 
+        by automatically packing them into a single storage slot of 32 bytes, if possible.
     */
 
-    // Global variables are sequentially stored in Storage, starting at slot 0
     function test_global_variables_default_to_storage() public {
         bytes1 storage_at_0;
         uint storage_at_1;
-        // Hint: sload(n) is a storage-level command that pulls the value currently stored at slot n
+        // Hint: sload(n) reads the data in Storage, at slot n
         assembly {
             storage_at_0 := sload(0)
             storage_at_1 := sload(1)
         }
-        // Hint: we declared global variables in the parent contract "Koans.sol"
+        // Hint: we have some global variables declared by parent contract "Koans.sol"
         Assert.equal(storage_at_0, __, "should return a 1 byte value stored at storage slot 0");
         Assert.equal(storage_at_1, __, "should return a uint256 value stored at storage slot 1");
     }
 
-    // How arrays are stored: 
-    // First, the array length is stored at the next available storage slot, starting at 0
-    // Then, the array's contents are concatenated and stored in ...[..]
+    /*  How EVM stores arrays:
+        1. The array length is stored at the next available storage slot, starting at 0
+        1.1 If the array is dynamic...
+        A reference to the array is stored...
+    */ 
     uint[] a = [1,2,3];
     
     function test_arrays_default_to_storage() public {
@@ -114,53 +117,36 @@ contract Test_Storage_7 is Koans {
         Assert.equal(z, __, "should return the optimized array values stored at storage(array_hash)");
     }
 
-    // How mappings are stored: 
-    // First ...
+    /*  How EVM stores mappings:
+        1. Mappings have access to the entire 2^256 storage allocation
+        2. The key is hashed
+    */
     function test_mappings_default_to_storage() public {
 
     }
 
-    // How structs are stored
+    /*  How EVM stores structs:
+
+    */
+
+    Person son = Person("Jake Smith", 2);
+    Person mom = Person("Jane Smith", 30);
+    Person dad = Person("John Smith", 32);
     function test_structs_default_to_storage() public {
 
     }
 
+    // How many slots in storage do you expect this struct to take up?
+    struct ComboLock {
+        uint8 code1;
+        uint8 code2;
+        uint8 code3;
+    }
 
-    // Last test
-    // ---------------------------------------------------
-    // Not being careful will override data!!
+    ComboLock myLock;
 
+    function test_structs_optimization() public {
 
-    // ---------------------------------------------------
-    // Storage Layout Optimization
-
-
-    
-    // struct Small {
-    //     uint16 num1;
-    //     uint16 num2;
-    //     bytes32 str; 
-    // }
-
-    // struct Big {
-    //     uint16 num1;
-    //     bytes32 str; 
-    //     uint16 num2;
-    // }
-
-    // Small s;    // How many slots will a Small struct occupy?
-    // Big b;      // How many slots will a Big struct occupy?
-
-    // function test_structs_optimize_storage() public {        
-    //     s = Small(1,1,"hi");
-    //     uint small_struct_size = getStorageSize();
-        
-    //     b = Big(1, "hello world", 1);
-    //     uint big_struct_size = getStorageSize() - small_struct_size;
-
-    //     Assert.equal(small_struct_size, uint(2), "should be the number of slots it takes to store a Small struct");
-    //     Assert.equal(big_struct_size, uint(3), "should be the number of slots it takes to store a Big struct");
-    //     Assert.isBelow(small_struct_size, big_struct_size, "Big structs take more storage slots than Small structs");
-    // }
+    }
 
 }
