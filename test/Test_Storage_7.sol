@@ -35,12 +35,21 @@ contract Test_Storage_7 is Koans {
 
     // Function input arguments are always stored in memory
     function test_functions_params_are_stored_in_memory() public {
-        // show that changing array data doesnt change struct...
+        
     }
 
-    // You can create arrays in memory
+    // You can create arrays in memory with keyword "memory"
     function test_create_arrays_in_memory() public {
-        
+        uint256[2] memory array = [uint256(16), uint256(32)];
+        uint memory_at_c0;
+        uint memory_at_e0;
+        // Hint: mload(n) is a memory-level command that loads the variable stored in memory slot n
+        assembly {
+            memory_at_c0 := mload(0xc0)
+            memory_at_e0 := mload(0xe0) 
+        }
+        Assert.equal(memory_at_c0, array[uint(__)], "should be the correct value in memory slot 0xc0");
+        Assert.equal(memory_at_e0, array[uint(__)], "should be the correct value in memory slot 0xe0");
     }
 
     // You can create mappings in memory
@@ -49,7 +58,7 @@ contract Test_Storage_7 is Koans {
     }
 
     // You can create structs in memory
-    function test_create_mappings_in_memory() public {
+    function test_create_structs_in_memory() public {
         
     }
 
