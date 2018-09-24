@@ -21,7 +21,7 @@ contract Test_Storage_7 is Koans {
     // ----------------------Stack-----------------------------
 
     // Local, single variables (except arrays, structs, mappings) are stored in the Stack
-    function test_basic_data_default_to_stack() public {
+    function test_local_primitives_default_to_the_stack() public {
         uint actual;
         uint a = 1;
         uint b = 2;
@@ -33,8 +33,8 @@ contract Test_Storage_7 is Koans {
 
     // ----------------------Memory-----------------------------
 
-    // You can create arrays in memory with keyword "memory"
-    function test_create_arrays_in_memory() public {
+    // You can create temporary arrays in memory with keyword "memory"
+    function test_you_can_create_arrays_in_memory() public {
         uint256[2] memory array = [uint256(16), uint256(32)];
         uint memory_at_c0;
         uint memory_at_e0;
@@ -48,13 +48,13 @@ contract Test_Storage_7 is Koans {
         Assert.equal(memory_at_e0, array[uint(__)], "should be the correct value in memory slot 0xe0");
     }
 
-    // You can create structs in memory with keyword "memory"
+    // You can create temporary structs in memory with keyword "memory"
     struct Person {
         bytes32 name;
         uint8 age;
     }
 
-    function test_create_structs_in_memory() public {
+    function test_you_can_create_structs_in_memory() public {
         Person memory john = Person("John Doe", 48); 
         bytes32 memory_at_c0;
         uint memory_at_e0;
@@ -66,35 +66,46 @@ contract Test_Storage_7 is Koans {
         Assert.equal(memory_at_e0, __, "should be the correct value in memory slot 0xe0");
     }
 
+    // Note: you cannot create mappings in memory. This is because mappings have access to the entire 2^256 storage
+
     // ----------------------Storage-----------------------------
 
-    // State (global) variables are stored in Storage
-    uint global_var1 = 26; 
-    uint global_var2 = 27; 
-
-    function test_global_state_is_always_storage() public {
-        uint storage_at_0;
+    // Global variables are stored in Storage, starting at slot 0
+    function test_global_variables_default_to_storage() public {
+        bytes1 storage_at_0;
         uint storage_at_1;
         // Hint: sload(n) is a storage-level command that pulls the value currently stored at slot n
         assembly {
             storage_at_0 := sload(0)
             storage_at_1 := sload(1)
         }
-        Assert.equal(storage_at_0, __, "should return the value stored at storage slot 0");
-        Assert.equal(storage_at_1, __, "should return the value stored at storage slot 1");
+        // Hint: we already have global variables initialized in the parent contract "Koans"
+        Assert.equal(storage_at_0, __, "should return a 1 byte value stored at storage slot 0");
+        Assert.equal(storage_at_1, __, "should return a uint256 value stored at storage slot 1");
     }
 
     // Local variables of array type reference storage by default
-    function test_arrays_default_to_storage() public {
+    uint8[] a = [1,2,3];
 
-    }
+    // function test_arrays_default_to_storage() public {
+    //     uint storage_1;
+    //     uint storage_2;
+    //     uint storage_3;
+    //     assembly {
+    //         storage_1 := sload(1)
+    //         storage_2 := sload(2)
+    //         storage_3 := sload(3)
+    //     }
+    //     Assert.equal(storage_1, global_var2, "should return the value stored at storage slot 1");
+    //     Assert.equal(storage_2, uint(1), "should return the value stored at storage slot 2");
+    //     Assert.equal(storage_3, uint(2), "should return the value stored at storage slot 3");
+    // }
 
     // Local variables of mapping type reference storage by default
-    function test_mapping_default_to_storage() public {
+    function test_mappings_default_to_storage() public {
 
     }
 
-    // Local variables of struct type reference storage by default
     function test_structs_default_to_storage() public {
 
     }
