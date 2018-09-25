@@ -98,24 +98,32 @@ contract Test_Storage_7 is Koans {
     /*  How EVM stores arrays:
         1. The array length is stored at the next available storage slot p, starting at 0
         2. Array's contents are stored at key: keccak256(bytes32(p))
+        3. Contents are packed and additional array values are stored at the next bytesize increment of the key
     */ 
     uint[] a = [1,2,3];
     
     function test_arrays_default_to_storage() public {
+        uint length;
         uint x;
         uint y;
         uint z;
+
         uint next_slot = uint(__);
         bytes32 p1 = keccak256(abi.encodePacked(next_slot));
-        bytes32 p2 = bytes32(uint(p1) + 1);         // each uint value takes up 1 byte
+        bytes32 p2 = bytes32(uint(p1) + 1); // each uint value takes up 1 slot
+        bytes32 p3 = __;
+        
         assembly {
-            x := sload(2)
-            y := sload(p1)
-            z := sload(p2)  
+            length := sload(2)
+            x := sload(p1)
+            y := sload(p2)
+            y := sload(p3)
         }
-        Assert.equal(x, __, "should return the value stored at storage slot 2, i.e. the array length");
-        Assert.equal(y, __, "should return the array values stored at storage(array_hash)");
-        Assert.equal(z, __, "should return the array values stored at storage(array_hash + datasize)");
+
+        Assert.equal(length, __, "should return the value stored at storage slot 2, i.e. the array length");
+        Assert.equal(x, __, "should return the array values stored at storage(array_hash)");
+        Assert.equal(y, __, "should return the array values stored at incremented storage index");
+        Assert.equal(z, __, "should return the array values stored at incremented storage index");
     }
 
     /*  How EVM stores mappings:
