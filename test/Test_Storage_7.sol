@@ -96,9 +96,8 @@ contract Test_Storage_7 is Koans {
     }
 
     /*  How EVM stores arrays:
-        1. The array length is stored at the next available storage slot, starting at 0
-        1.1 If the array is dynamic...
-        A reference to the array is stored...
+        1. The array length is stored at the next available storage slot p, starting at 0
+        2. Array's contents are stored at key: keccak256(bytes32(p))
     */ 
     uint[] a = [1,2,3];
     
@@ -106,15 +105,17 @@ contract Test_Storage_7 is Koans {
         uint x;
         uint y;
         uint z;
+        uint next_slot = uint(__);
+        bytes32 p1 = keccak256(abi.encodePacked(next_slot));
+        bytes32 p2 = bytes32(uint(p1) + 1);         // each uint value takes up 1 byte
         assembly {
-            x := sload(1)
-            y := sload(2)
-            // TODO: replace 3 with the correct hash
-            z := sload(3)   
+            x := sload(2)
+            y := sload(p1)
+            z := sload(p2)  
         }
-        Assert.equal(x, __, "should return the value stored at storage slot 1");
-        Assert.equal(y, __, "should return the value stored at storage slot 2, i.e. the array length");
-        Assert.equal(z, __, "should return the optimized array values stored at storage(array_hash)");
+        Assert.equal(x, __, "should return the value stored at storage slot 2, i.e. the array length");
+        Assert.equal(y, __, "should return the array values stored at storage(array_hash)");
+        Assert.equal(z, __, "should return the array values stored at storage(array_hash + datasize)");
     }
 
     /*  How EVM stores mappings:
