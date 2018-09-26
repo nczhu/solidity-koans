@@ -77,7 +77,7 @@ contract Test_Storage_7 is Koans {
     /*  ----------------------Storage-----------------------------
         1. Ethereum storage allocates 2^256 bytes of storage per contract.
         2. Storage usage consumes more gas than Memory usage.
-        3. Storage is divided into sequential, 32-byte-sized "slots", starting at index 0.
+        3. Storage is actually a hashmap, with Keys starting at slot 0, and with values of 32bytes.
         4. If data less than 32 bytes in size are grouped together, the EVM will save space 
            by automatically packing them into a single storage slot of 32 bytes, if possible.
     */
@@ -96,33 +96,64 @@ contract Test_Storage_7 is Koans {
     }
 
     /*  How EVM stores arrays:
-        1. The array length is stored at the next available storage slot, starting at 0
-        1.1 If the array is dynamic...
-        A reference to the array is stored...
+        1. The array length is stored at the next available storage slot p, starting at 0
+        2. Array's contents are stored starting at key: keccak256(bytes32(p))
+        3. Additional contents are stored at the next offset from the key
     */ 
     uint[] a = [1,2,3];
     
     function test_arrays_default_to_storage() public {
+        uint length;
         uint x;
         uint y;
         uint z;
+
+        uint next_slot = uint(__);
+        bytes32 p1 = keccak256(abi.encodePacked(next_slot));
+        bytes32 p2 = bytes32(uint(p1) + 1); // each uint value takes up 1 slot
+        bytes32 p3 = __;
+        
         assembly {
-            x := sload(1)
-            y := sload(2)
-            // TODO: replace 3 with the correct hash
-            z := sload(3)   
+            length := sload(2)
+            x := sload(p1)
+            y := sload(p2)
+            y := sload(p3)
         }
-        Assert.equal(x, __, "should return the value stored at storage slot 1");
-        Assert.equal(y, __, "should return the value stored at storage slot 2, i.e. the array length");
-        Assert.equal(z, __, "should return the optimized array values stored at storage(array_hash)");
+
+        Assert.equal(length, __, "should return the value stored at storage slot 2, i.e. the array length");
+        Assert.equal(x, __, "should return the array values stored at storage(array_hash)");
+        Assert.equal(y, __, "should return the array values stored at incremented storage index");
+        Assert.equal(z, __, "should return the array values stored at incremented storage index");
     }
 
     /*  How EVM stores mappings:
-        1. Mappings have access to the entire 2^256 storage allocation
-        2. The key is hashed
+        1. Mappings are stored more efficiently than arrays
+        2. Similarly, p the available slot, is reserved and used to calculate the storage keys
+        3. But no values are added to storage at slot p.
+        4. The first value is stored at: keccak(key . p), where . is concatenation
+        5. Hint: in Sol, you concatenate bytes32 values by: abi.encodePacked(bytes32(key),bytes32(p));
     */
-    function test_mappings_default_to_storage() public {
 
+    mapping(uint => bytes32) alphabets;
+    function test_mappings_default_to_storage() public {
+        alphabets[0] = "a";
+        alphabets[1] = "b";
+        bytes32 x;
+        bytes32 y;
+        bytes32 z;
+        bytes32 p0 = __;
+        bytes32 p1 = __;
+        bytes32 p2 = __;
+
+        assembly {
+            x := sload(p0)
+            y := sload(p1)
+            z := sload(p2)
+        }
+
+        Assert.equal(x, bytes32(""), "value at p should be nil");
+        Assert.equal(y, bytes32("a"), "value at p1 should be a");
+        Assert.equal(z, bytes32("b"), "value at p2 should be b");
     }
 
     /*  How EVM stores structs:
