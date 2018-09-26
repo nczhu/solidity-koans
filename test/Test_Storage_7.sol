@@ -178,7 +178,9 @@ contract Test_Storage_7 is Koans {
     }
 
     /* How EVM compresses struct values
-        1. 
+        1. Sequential struct values that can fit in a single 32-byte slot,
+        2. Are indexed from right to left, offset by the data size
+
         How many slots in storage do you expect the following struct to take up?
     */
     struct Compressed {
