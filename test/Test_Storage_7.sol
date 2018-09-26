@@ -177,17 +177,22 @@ contract Test_Storage_7 is Koans {
         Assert.equal(my_age, uint(my_age), "value at p2 should be my age");
     }
 
-    // How many slots in storage do you expect this struct to take up?
-    struct ComboLock {
-        uint8 code1;
-        uint8 code2;
-        uint8 code3;
+    /* How EVM compresses struct values
+        1. 
+        How many slots in storage do you expect the following struct to take up?
+    */
+    struct Compressed {
+        uint8 num1;
+        uint8 num2;
+        uint8 num3;
     }
 
-    ComboLock myLock;
-
+    Compressed obj = Compressed(4, 8, 16);
     function test_structs_optimize_storage() public {
-
+        bytes32 actual;
+        assembly {
+            actual := sload(6)
+        }
+        Assert.equal(actual, __, "should be the correct bytes32 value at slot 6");
     }
-
 }
