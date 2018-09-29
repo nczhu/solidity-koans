@@ -46,6 +46,7 @@ This is an intermediate series for learning Solidity and smart contract developm
 - bytecode & opcodes
 
 ## Directions
+---
 ### Setup
 * Install [Truffle](https://truffleframework.com/truffle)
 * Install and run [Ganache](https://truffleframework.com/ganache) 
@@ -77,10 +78,11 @@ This is an intermediate series for learning Solidity and smart contract developm
    * All compiler warnings and errors are fixed
 
 ## Troubleshooting
-<hr>
+---
 - `Member "..." not unique after argument-dependent lookup in type(library Assert)`. *Solution*: try typecasting your answer to solve compiler issues.
 
 ## Contributing
+---
  1. Fork it the project
  2. Create your feature branch using issue #: `git checkout -b issue#-feature`
  3. Commit your changes: `git commit -am 'Fix/Add/Change: commit msg'`
@@ -90,7 +92,9 @@ This is an intermediate series for learning Solidity and smart contract developm
 See full list of outstanding [issues](https://github.com/nczhu/soliditykoans/issues) here.
 
 ## Design Decisions
+---
 - Rewrote Assert.sol to accommodate for additional data types. Modifications are signed inline with @nczhu
 
 ## License
+---
 MIT License
