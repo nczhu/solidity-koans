@@ -1,6 +1,7 @@
 This is an intermediate learning series for Solidity and smart contract programming. You will explore technical concepts from syntax edgecases, to assembly in the EVM, to smart contract coding conventions.
 
-*“If your mind is empty, it is always ready for anything, it is open to everything. In the beginner’s mind there are many possibilities, but in the expert’s mind there are few.”*
+> *“If your mind is empty, it is always ready for anything, it is open to everything. In the beginner’s mind there are many possibilities, but in the expert’s mind there are few.”*
+
 
 ## Directions
 ### Setup
