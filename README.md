@@ -1,22 +1,33 @@
-# Solidity Koans
+This is an intermediate learning series for Solidity and smart contract programming. You will explore technical concepts from syntax edgecases, to assembly in the EVM, to smart contract coding conventions.
 
-Learn Etherem programming through test driven development. The Koans walk you along the path to enlightenment in order to learn Solidity - as inspired by Ruby Koans.
-
-*“If your mind is empty, it is always ready for anything, it is open to everything. In the beginner’s mind there are many possibilities, but in the expert’s mind there are few. ”*
+*“If your mind is empty, it is always ready for anything, it is open to everything. In the beginner’s mind there are many possibilities, but in the expert’s mind there are few.”*
 
 ## Directions
+### Setup
+* Install [Truffle](https://truffleframework.com/truffle)
+* Install and run [Ganache](https://truffleframework.com/ganache) 
+* Recommended Text Editors: Vim, Emacs, Sublime
+* Hint: Use [Remix IDE](http://remix.ethereum.org) to test potential solutions
 
- 1. Make sure Ganache is running & double check network configs in truffle.js
- 2. To run tests: `truffle test`
- 3. To run a specific test: `truffle test ./testFilePath`
- 4. To pass a level, make sure to: 
-   * fill in all underscores `__`
-   * fix all compiler warnings and errors
+### Fail, Fix, and Pass
+ 1. Run the each level with: `truffle test ./test/Test_FILENAME`
+ Tests should initially fail with the test name and error message, e.g.:
+ ```
+ 2) Test_Assert_1
+    test_should_return_true::
+    Error: should return true
+ ```
+ 2. In your editor, replace `__` with the correct values or code, e.g.: 
+ ```
+ function test_should_return_true() public {
+    Assert.isTrue(true, "should return true");
+ }
+ ```
+ 3. To pass the level, make sure:
+   * All tests are passing
+   * All compiler warnings and errors are fixed
 
-### Troubleshooting
-- `Member "..." not unique after argument-dependent lookup in type(library Assert)`. *Solution*: try typecasting your answer to solve compiler issues.
-
-## Levels
+## Learning Path
 
 ### Standard data types
 1. [Asserts](./test/Test_Assert_1.sol)
@@ -32,23 +43,18 @@ Learn Etherem programming through test driven development. The Koans walk you al
 - Visbility modifiers: public, private, external, etc.
 - Getter modifiers: view, pure, constant
 
-### Transactions
-- address: how its computed
-- data
-- msg.sender
-- msg.value
-- gas
-- emitting events: good practice
-- Transaction nuances: what gets returned, async nature
-- scope variable: this
+### Transactions details
+- address & how its computed
+- data types: sender, value, gas
+- async return values
+- this
 
 ### exception handling
 - require
 - asserts
-- ...
-- passing storage arrays rather than memory arrays
+- events
 
-### Javascript & client
+### Javascript client
 - free getter functions
 - handling issues
 - constructing your send / call fns
@@ -71,6 +77,9 @@ Learn Etherem programming through test driven development. The Koans walk you al
 ### Solidity Assembly
 - bytecode analysis
 - code in assembly (inside smart contracts)
+
+## Troubleshooting
+- `Member "..." not unique after argument-dependent lookup in type(library Assert)`. *Solution*: try typecasting your answer to solve compiler issues.
 
 ## Contributing
 
