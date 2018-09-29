@@ -2,7 +2,7 @@
 
 Learn Etherem programming through test driven development. The Koans walk you along the path to enlightenment in order to learn Solidity - as inspired by Ruby Koans.
 
-“If your mind is empty, it is always ready for anything, it is open to everything. In the beginner’s mind there are many possibilities, but in the expert’s mind there are few. ”
+*“If your mind is empty, it is always ready for anything, it is open to everything. In the beginner’s mind there are many possibilities, but in the expert’s mind there are few. ”*
 
 ## Directions
 
