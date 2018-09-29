@@ -11,20 +11,26 @@ This is an intermediate series for learning Solidity and smart contract developm
 * Hint: Use [Remix IDE](http://remix.ethereum.org) to test potential solutions
 
 ### Fail, Fix, and Pass
- 1. Run the each level with: `truffle test ./test/Test_FILENAME`
- Tests should initially fail with the test name and error message, e.g.:
+ 1. Each test is initially incomplete, e.g.: 
+ ```
+ function test_should_return_true() public {
+    Assert.isTrue(__, "should return true");
+ }
+ ```
+ 2. Run each level with: `truffle test ./test/Test_FILENAME`
+ Tests will fail with error messages, e.g.:
  ```
  2) Test_Assert_1
     test_should_return_true::
     Error: should return true
  ```
- 2. In your editor, replace `__` with the correct values or code, e.g.: 
+ 3. In your editor, replace `__` with the correct values or code, e.g.: 
  ```
  function test_should_return_true() public {
     Assert.isTrue(true, "should return true");
  }
  ```
- 3. To pass the level, make sure:
+ 4. To pass each level, make sure:
    * All tests are passing
    * All compiler warnings and errors are fixed
 
