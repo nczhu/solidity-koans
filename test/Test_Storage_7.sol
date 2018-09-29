@@ -157,27 +157,44 @@ contract Test_Storage_7 is Koans {
     }
 
     /*  How EVM stores structs:
-
+        1. Structs are stored at the next available storage slots
+        2. If struct's sequential data is less than 32 bytes, EVM will optimize storage
+        3. By compressing struct values in the same 32 byte slot
     */
-
-    Person son = Person("Jake Smith", 2);
-    Person mom = Person("Jane Smith", 30);
-    Person dad = Person("John Smith", 32);
+    Person me = Person("Jane Smith", 30);
     function test_structs_default_to_storage() public {
+        bytes32 my_name;
+        uint8 my_age;
+        bytes32 p1 = __;
+        bytes32 p2 = __;
 
+        assembly {
+            my_name := sload(p1)
+            my_age := sload(p2)
+        }
+
+        Assert.equal(my_name, bytes32("Jane Smith"), "value at p1 should be my name");
+        Assert.equal(my_age, uint(my_age), "value at p2 should be my age");
     }
 
-    // How many slots in storage do you expect this struct to take up?
-    struct ComboLock {
-        uint8 code1;
-        uint8 code2;
-        uint8 code3;
+    /* How EVM compresses struct values
+        1. Sequential struct values that can fit in a single 32-byte slot,
+        2. Are indexed from right to left, offset by the data size
+
+        How many slots in storage do you expect the following struct to take up?
+    */
+    struct Compressed {
+        uint8 num1;
+        uint8 num2;
+        uint8 num3;
     }
 
-    ComboLock myLock;
-
-    function test_structs_optimization() public {
-
+    Compressed obj = Compressed(4, 8, 16);
+    function test_structs_optimize_storage() public {
+        bytes32 actual;
+        assembly {
+            actual := sload(6)
+        }
+        Assert.equal(actual, __, "should be the correct bytes32 value at slot 6");
     }
-
 }
