@@ -23,14 +23,11 @@ This is an intermediate series for learning Solidity and smart contract developm
 - data types: sender, value, gas, this
 - async return values
 
-### exception handling (in progress)
-- require, asserts
-- events
-
 ### Javascript client (in progress)
+- events
+- error handling: require, asserts
 - free getter functions
-- handling issues
-- constructing your send / call fns
+- constructing send / call fns
 
 ### Design patterns (in progress)
 - interfaces
