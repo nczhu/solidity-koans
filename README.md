@@ -2,7 +2,7 @@ This is an intermediate series for learning Solidity and smart contract developm
 
 > *“If your mind is empty, it is always ready for anything, it is open to everything. In the beginner’s mind there are many possibilities, but in the expert’s mind there are few.”*  
        
-## Learning Paths
+## Learning Path
 
 ### Standard data types
 1. [Asserts](./test/Test_Assert_1.sol)
@@ -18,40 +18,32 @@ This is an intermediate series for learning Solidity and smart contract developm
 - Visbility modifiers: public, private, external, etc.
 - Getter modifiers: view, pure, constant
 
-### Transactions details
+### Transactions details (in progress)
 - address & how its computed
-- data types: sender, value, gas
+- data types: sender, value, gas, this
 - async return values
-- this
 
-### exception handling
-- require
-- asserts
+### Javascript client (in progress)
 - events
-
-### Javascript client
+- error handling: require, asserts
 - free getter functions
-- handling issues
-- constructing your send / call fns
+- constructing send / call fns
 
-### Design patterns
+### Design patterns (in progress)
 - interfaces
-- librarys
-- scope variable: super
+- libraries, ERC libs
 - factory patterns
 
-### Security
+### Security (in progress)
 - ownership
-- math
 - overflow, underflow
 - re-entry
 - tx.origin
 - delegatecall: scope
 - storage hacks
 
-### Solidity Assembly
-- bytecode analysis
-- code in assembly (inside smart contracts)
+### Solidity Assembly (in progress)
+- bytecode & opcodes
 
 ## Directions
 ### Setup
