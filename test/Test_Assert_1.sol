@@ -22,7 +22,7 @@ contract Test_Assert_1 is Koans {
         Assert.isTrue(__, "should return true");
     }
 
-    // You can test if a condition returns true
+    // You can test if a condition returns false
     function test_should_return_false() public {
         Assert.isFalse(__, "should return false");
     }
