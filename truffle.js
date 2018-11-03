@@ -18,7 +18,7 @@ module.exports = {
   networks: {
     development: {
       host: "127.0.0.1",
-      port: 7545,
+      port: 8545,   // you may have to change this depending on your RPC setup
       network_id: "*" // Match any network id
     }
   }
