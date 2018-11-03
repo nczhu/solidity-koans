@@ -48,8 +48,13 @@ This is an intermediate series for learning Solidity and smart contract developm
 ## Directions
 ---
 ### How to Setup
-* Clone the repo: `git clone https://github.com/nczhu/solidity-koans.git`
-* Run `npm install` and `npm start`
+* Clone the repo: 
+```git clone https://github.com/nczhu/solidity-koans.git```
+* Install dependencies: 
+```
+npm install -g truffle ganache-cli
+```
+* Start Ganache: `ganache-cli`
 * In a new tab, check out the `/test` directory, where each test represents a koan. To get started with the easiest (and first) Koan, run:
 `truffle test ./test/Test_assert_1.sol`
 
