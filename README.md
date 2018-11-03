@@ -47,13 +47,13 @@ This is an intermediate series for learning Solidity and smart contract developm
 
 ## Directions
 ---
-### Setup
-* Install [Truffle](https://truffleframework.com/truffle)
-* Install and run [Ganache](https://truffleframework.com/ganache) 
-* Recommended Text Editors: Vim, Emacs, Sublime
-* Hint: Use [Remix IDE](http://remix.ethereum.org) to test potential solutions
+### How to Setup
+* Clone the repo: `git clone https://github.com/nczhu/solidity-koans.git`
+* Run `npm install` and `npm start`
+* In a new tab, check out the `/test` directory, where each test represents a koan. To get started with the easiest (and first) Koan, run:
+`truffle test ./test/Test_assert_1.sol`
 
-### Fail, Fix, and Pass
+### How to Tackle Each Koan
  1. Each test is initially incomplete, e.g.: 
  ```
  function test_should_return_true() public {
@@ -76,6 +76,8 @@ This is an intermediate series for learning Solidity and smart contract developm
  4. To pass each level, make sure:
    * All tests are passing
    * All compiler warnings and errors are fixed
+
+* Hint: Use [Remix IDE](http://remix.ethereum.org) to test potential solutions
 
 ## Troubleshooting
 ---
