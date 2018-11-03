@@ -1,0 +1,30 @@
+{
+  "name": "solidity-koans",
+  "version": "1.0.0",
+  "description": "Learn Solidity through simple programming exercises",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nczhu/solidity-koans.git"
+  },
+  "keywords": [
+    "solidity",
+    "blockchain",
+    "ethereum"
+  ],
+  "author": "Nicole Zhu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nczhu/solidity-koans/issues"
+  },
+  "homepage": "https://github.com/nczhu/solidity-koans#readme",
+  "dependencies": {
+    "truffle": "^4.1.14"
+  }
+}
