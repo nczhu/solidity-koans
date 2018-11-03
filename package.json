@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/nczhu/solidity-koans#readme",
   "dependencies": {
+    "ganache-cli": "^6.1.8",
     "truffle": "^4.1.14"
   }
 }
