@@ -54,7 +54,7 @@ contract Test_Numbers_2 is Koans {
 
     function test_ints_can_be_exponentiated() public {
         int actual = 2 ** 128;
-        Assert.equal(actual, __, "should correctly calculate 2^256");
+        Assert.equal(actual, __, "should correctly calculate 2^128");
     }
 
     function test_ints_can_be_modded() public {
