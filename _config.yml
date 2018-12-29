@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
 title: Solidity Koans
-description: Learn Etherem programming through test driven development. The Koans walk you along the path to enlightenment in order to learn Solidity - as inspired by Ruby Koans.
+description: Learn Ethereum programming through test driven development. The Koans walk you along the path to enlightenment in order to learn Solidity - as inspired by Ruby Koans.
 logo: https://user-images.githubusercontent.com/23445933/46241779-d3521100-c3e8-11e8-8bee-c9ee69c8ee78.png
 show_downloads: true
