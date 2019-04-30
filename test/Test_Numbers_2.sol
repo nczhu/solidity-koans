@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 import "../contracts/Assert.sol";
 import "./Koans.sol";
@@ -13,17 +13,17 @@ contract Test_Numbers_2 is Koans {
     function test_you_can_use_ints_and_uints() public {
         int expected_int = -10;
         uint expected_uint = 10;
-        Assert.equal(expected_int, int(__), "should recognize int numbers");
-        Assert.equal(expected_uint, uint(__), "should recognize uint numbers");
+        Assert.equal(expected_int, int(bytes32(__)), "should recognize int numbers");
+        Assert.equal(expected_uint, uint(bytes32(__)), "should recognize uint numbers");
     }
 
     // Ethereum's smart contract storage slots are 256 bits each, or 32 bytes
     // You can declare ints of sizes: uint8, uint16... to uint256 (alias uint)
     function test_int_defaults_to_32_bytes() public {
-        int size_of_int = getIntSize(int(0)); 
+        int size_of_int = getIntSize(int(0));
         int size_of_int256 = getIntSize(int256(0));
-        Assert.equal(size_of_int, int(__), "should equal 32 bytes");
-        Assert.equal(size_of_int256, int(__), "should equal 32 bytes");
+        Assert.equal(size_of_int, int(bytes32(__)), "should equal 32 bytes");
+        Assert.equal(size_of_int256, int(bytes32(__)), "should equal 32 bytes");
     }
 
     // Save gas by using smaller variables that can share the same storage slot
@@ -74,7 +74,7 @@ contract Test_Numbers_2 is Koans {
         Assert.equal(isNotEqual, __, "should be the boolean result of NOTEQUALS operator");
     }
 
-    // Beware of arithmetic underflows, which are not handled by 
+    // Beware of arithmetic underflows, which are not handled by
     function test_arithmetic_underflows() public {
         uint zero = 0;
         uint less_than_zero = zero - 1;
