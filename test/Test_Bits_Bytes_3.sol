@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 import "../contracts/Assert.sol";
 import "./Koans.sol";
@@ -17,11 +17,11 @@ contract Test_Bits_Bytes_3 is Koans {
     // You can declare bytes of sizes: bytes1, bytes2, bytes32 (but NOT bytes)
     function test_shrinking_and_converting_bytes_corrupts_data() public {
         bytes32 a = bytes32(MAX_UINT);
-        bytes3 b = bytes3(MAX_UINT);
-        Assert.isBelow(uint(__), uint(__), "should not be equal after resizing");
+        bytes3 b = bytes3(bytes32(MAX_UINT));
+        Assert.isBelow(uint(bytes32(__)), uint(bytes32(__)), "should not be equal after resizing");
     }
 
-    // You can do bitwise operations    
+    // You can do bitwise operations
     function test_bitwise_operator_AND() public {
         bytes2 data = 0xffff;
         bytes2 mask = 0xf0f0;
@@ -34,7 +34,7 @@ contract Test_Bits_Bytes_3 is Koans {
     // Likewise, you can do bitwise operations on ints
     function test_bitwise_operator_XOR() public {
         uint integer = 42;              // or 101010 bitwise
-        uint actual = integer ^ 56;   
+        uint actual = integer ^ 56;
         Assert.equal(actual, __, "should equal the bitwise of (integer XOR mask)");
     }
 

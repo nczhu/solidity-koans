@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 import "../contracts/Assert.sol";
 import "./Koans.sol";
@@ -17,11 +17,10 @@ contract Test_Arrays_4 is Koans {
 
     // You can create arrays of different data types
     // You can check the lengths of your arrays
-    // Notice the lack of storage specificity generates compiler warnings
+    uint[] integers;
     function test_can_use_arrays_in_Solidity() public {
-        bytes32[] bytesArray;
+        bytes32[] memory bytesArray;
         Assert.equal(bytesArray.length, __, "should be an empty bytes array");
-        uint[] integers;
         integers.push(12345);
         Assert.equal(integers.length, __, "should be a nonempty array of uints");
     }

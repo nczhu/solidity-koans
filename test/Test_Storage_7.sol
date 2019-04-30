@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 import "../contracts/Assert.sol";
 import "./Koans.sol";
@@ -25,15 +25,16 @@ contract Test_Storage_7 is Koans {
            Complex datatypes must be saved to Memory or Storage.
     */
 
-    function test_local_primitives_default_to_the_stack() public {
-        uint actual;
-        uint a = 1;
-        uint b = 2;
-        // Hint: swap1 is a stack-level command that swaps the most recent and second most recent datapoints on the stack
-        assembly { swap1 }
-        actual = a ** b;
-        Assert.equal(actual, __, "should return the correct exponent, given stack ordering");
-    }
+    // `swap` is not allowed in inline assembly anymore
+    // function test_local_primitives_default_to_the_stack() public {
+    //     uint actual;
+    //     uint a = 1;
+    //     uint b = 2;
+    //     // Hint: swap1 is a stack-level command that swaps the most recent and second most recent datapoints on the stack
+    //     assembly { swap1 }
+    //     actual = a ** b;
+    //     Assert.equal(actual, __, "should return the correct exponent, given stack ordering");
+    // }
 
     /*  ----------------------Memory-----------------------------
         1. The EVM allocates infinite memory per computation.
@@ -52,8 +53,8 @@ contract Test_Storage_7 is Koans {
             memory_at_c0 := mload(0xc0)
             memory_at_e0 := mload(0xe0) 
         }
-        Assert.equal(memory_at_c0, array[uint(__)], "should be the correct value in memory slot 0xc0");
-        Assert.equal(memory_at_e0, array[uint(__)], "should be the correct value in memory slot 0xe0");
+        Assert.equal(memory_at_c0, array[uint(bytes32(__))], "should be the correct value in memory slot 0xc0");
+        Assert.equal(memory_at_e0, array[uint(bytes32(__))], "should be the correct value in memory slot 0xe0");
     }
 
     // You can create temporary structs in memory with keyword "memory"
@@ -108,7 +109,7 @@ contract Test_Storage_7 is Koans {
         uint y;
         uint z;
 
-        uint next_slot = uint(__);
+        uint next_slot = uint(bytes32(__));
         bytes32 p1 = keccak256(abi.encodePacked(next_slot));
         bytes32 p2 = bytes32(uint(p1) + 1); // each uint value takes up 1 slot
         bytes32 p3 = __;
